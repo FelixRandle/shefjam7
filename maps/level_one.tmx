@@ -42,32 +42,15 @@
   <tile id="18">
    <image width="32" height="32" source="../images/items/Tan/tan_0.png"/>
   </tile>
-<<<<<<< Updated upstream
  </tileset>
  <layer id="2" name="Tweets" width="60" height="25">
   <data encoding="base64" compression="zlib">
    eAHt00EKACAIRFEP0v3PGS3cm0jMxA/aVTgvjWAhgAACCCCAAAIIIKAvsPRLvKrwtzxX4TmMQENgamam3mlE4IqpAD1j+nGUbStwZi53JYT7jGZW9Rzq9VV65dWZDT85AW0=
-=======
- </tileset>
- <tileset firstgid="30" name="enemies" tilewidth="128" tileheight="128" tilecount="1" columns="0">
-  <grid orientation="orthogonal" width="1" height="1"/>
-  <tile id="0">
-   <image width="128" height="128" source="../images/enemies/koala.png"/>
-  </tile>
- </tileset>
- <layer id="2" name="Tweets" width="60" height="25">
-  <data encoding="base64" compression="zlib">
-   eAHtk0EKACEMA33I/v+dsgcvHgJCG0yMIArFppnWMbIWgW9dcl5BwKkfTl6uGA7TItCcoJgpDhlb7r1x9yczaCk0BEgEGH+eoUHCVSKDeKBYiXiSHBPo7Eln7mOjDz1Q4K5Qo9LIVPGsyqPEjlnrz3ffTH2k1dH73WuHBvKUWC2BCaLnAxE=
->>>>>>> Stashed changes
   </data>
  </layer>
  <layer id="4" name="Tan" width="60" height="25">
   <data encoding="base64" compression="zlib">
-<<<<<<< Updated upstream
    eAHt0QEBAAAIwjCK2L+mOcTR4CMxAgQIECBAgAABAgQIECBAgACBRoFpjHrc5M/H50s/I7AgHwA7
-=======
-   eAHt0DERAAAMAjGM1L/NimBgCQaeS2IECBAgQIAAAQIECBAgQIAAAQIECBAgsBa49QH9WuABSqQAHg==
->>>>>>> Stashed changes
   </data>
  </layer>
  <layer id="3" name="Damage" width="60" height="25">

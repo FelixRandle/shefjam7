@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="1">
  <editorsettings>
   <export target="." format="tmx"/>
  </editorsettings>
@@ -30,29 +30,25 @@
    <image width="128" height="128" source="../images/items/tweet.png"/>
   </tile>
  </tileset>
-<<<<<<< Updated upstream
- <layer id="2" name="Tweets" width="100" height="35">
-=======
- <tileset firstgid="12" name="Enemies" tilewidth="256" tileheight="256" tilecount="1" columns="0">
+ <tileset firstgid="12" name="Enemies" tilewidth="320" tileheight="320" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="256" height="256" source="../images/enemies/polarbear.png"/>
+   <image width="320" height="320" source="../../../../AppData/Local/Temp/polar_bear0_laxZKK"/>
   </tile>
  </tileset>
- <layer id="2" name="Tweets" width="100" height="35" visible="0">
->>>>>>> Stashed changes
+ <layer id="2" name="Tweets" width="100" height="35">
   <data encoding="base64" compression="zlib">
    eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
   </data>
  </layer>
  <layer id="3" name="Damage" width="100" height="35">
   <data encoding="base64" compression="zlib">
-   eAHt0rEJADAIBEAHyP7zZgAr4QvBsxR89LBKESBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAhcE3oUj3TgW8BdjsjawzTC5TyorldPwNdYJfCv/AEk=
+   eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
   </data>
  </layer>
  <layer id="1" name="Platforms" width="100" height="35">
   <data encoding="base64" compression="zlib">
-   eAHtlMsOwjAMBHvj//8YraIVS+u0oeEQqeNDE68f2BOJbcMgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCDyTwOuZay+7Ne+x1tOs+B6aaWaumdqz17nT17uM1o7mnc05E6vmtXa377938jyjfTNvpnZ0/6vfyHjOlv2tZ67j1uz/cla1lTbSU3Uy19tv6vHreObn3b2OlR8l83v37FPluFsVkybLmH2fjsmX2e+dLev7P025Mtc0r32t7U/nWJevu2yv9fwr3XGdsvSr+xvOlgOI
+   eAHtk+0KgzAMRf2393/jEeHCNbS1TugiHkHaJDcfO5nbxgMBCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIPIXA5ymDvmRO9lFr0eyDfdQiUGsavg/2UYtArWn4PthHLQLHaf79/1zZP3rpPVJYa638zVd/2dlsZ/HcT/o49UojWxr5dfb8it851Ttq9Ppkf7bv9J/NHfWM2Ciee7hed89v+aKG+12f68seaVoxr69+qjV7turO5l7R+ay6R77umsNt92Wtx5TT07T8OV+aOOPxmrL3QCOmuHK8tnJc477ePdfq6X71fwG1UAKv
   </data>
  </layer>
 </map>
