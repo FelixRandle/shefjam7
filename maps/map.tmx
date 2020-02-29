@@ -32,12 +32,12 @@
  </tileset>
  <layer id="2" name="Tweets" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eAFjYBgFoyEwOEKAe3A4Y0BcMZL9Tq0AHw1DaoXkqDlDNQQAkgAAIg==
+   eAFjYBgFoyEwOEKAe3A4Y0BcMZL9Tq0AHw1D3CFJj7AZLnbgDsXBLwMAxAQAQw==
   </data>
  </layer>
  <layer id="3" name="Damage" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eAFjYBgFoyEwGgKjITAaAiMlBNho7NGhbj6Ng4emxgMAIogAEw==
+   eAFjYBgFoyEwGgKjITAaAsM9BNjo4MHhYgcdgoomVgAAItAAEw==
   </data>
  </layer>
  <layer id="1" name="Platforms" width="25" height="20">

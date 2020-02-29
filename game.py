@@ -53,9 +53,9 @@ class GameView(arcade.View):
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
 
         self.maps = [
-            map.Map("./maps/level_one.tmx"),
-            map.Map("./maps/level_two.tmx"),
-            map.Map("./maps/level_three.tmx")
+            "./maps/level_one.tmx",
+            "./maps/level_two.tmx",
+            "./maps/level_three.tmx"
         ]
 
         self.currentLevel = 0
@@ -64,7 +64,6 @@ class GameView(arcade.View):
 
     def setup(self):
         """ Set up the game here. Call this function to restart the game. """
-
         # Used to keep track of our scrolling
         self.view_bottom = 0
         self.view_left = 0
@@ -78,17 +77,18 @@ class GameView(arcade.View):
         # Create the Sprite lists
         self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
-        self.coin_list = arcade.SpriteList()
+        self.damage_list = arcade.SpriteList()
+        self.tweet_list = arcade.SpriteList()
 
-        # Set up the player, specifically placing it at these coordinates.
+        # Set up the player
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         self.player = character.Character(image_source)
         self.player_list.append(self.player)
 
 
         # --- Load in a map from the tiled editor ---
-
-        self.map = self.maps[self.currentLevel]
+        print(self.maps[self.currentLevel])
+        self.map = map.Map(self.maps[self.currentLevel])
 
         self.wall_list = self.map.wall_list
         self.damage_list = self.map.damage_list
@@ -186,6 +186,11 @@ class GameView(arcade.View):
             game_over_view = menu.GameOverView()
             self.window.set_mouse_visible(True)
             self.window.show_view(game_over_view)
+
+        # Checking for winning score, assuming constant for now.
+        if self.score == 3:
+            self.currentLevel += 1
+            self.setup()
 
 
         # Scroll left
