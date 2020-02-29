@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="60" height="25" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="1">
  <editorsettings>
-  <export format="tmx"/>
+  <export target="." format="tmx"/>
  </editorsettings>
  <tileset firstgid="1" name="city_tiles" tilewidth="128" tileheight="128" tilecount="5" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
@@ -105,17 +105,17 @@
    <image width="128" height="128" source="../images/items/tweet.png"/>
   </tile>
  </tileset>
- <layer id="2" name="Tweets" width="60" height="25">
+ <layer id="2" name="Tweets" width="60" height="25" visible="0">
   <data encoding="base64" compression="zlib">
    eAHtk0EOACEIA32I/3+nF7mSkBQCpXtxEyPYGTxHnxG49qO1BQEmH0xZWgwH6SW8OfH2SHGMicXuhj3fmEHTRUWgiEDFm6/oUYQL0sbj4e1BmqtImECmk8za4aCLDoj7Itk/Kso5qs4+A/MTy/18h9kJHoyaAd0=
   </data>
  </layer>
  <layer id="3" name="Damage" width="60" height="25">
   <data encoding="base64" compression="zlib">
-   eAHt0DENAAAMw7DyGH+e49Crh4MgciICBAgQIECAAAECGwK3seGCAAECBAgQIECAAAEClcADcdsAHA==
+   eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDLwDAxdwAAE=
   </data>
  </layer>
- <layer id="1" name="Platforms" width="60" height="25">
+ <layer id="1" name="Platforms" width="60" height="25" visible="0">
   <data encoding="base64" compression="zlib">
    eAHdltFOHEEMBO8pkP//4VwflCgaz8ySICJhaa/tdtkziw7E0+12exqeu/UuwvyEmN5j8r7zXfvn/5Vn/+9341127+ge/N8quzJPHiXsOaf/VeozVzuvMKtZfN6BOspeetFfr769sAm8l+qtxkfpTxrmFCtm5U/7uAsaxvP4rdMuvGap6U8aJrFjYeAeA5/88A5G4z1T3JU7WNX+kIbL98FPvF1032fRQ3d7Tj129H78zCfn+4zu9k67vG+aZWbVi39i6E/K3vQ64PGprfQmNed8YvHCJczbc+8BvrLkO2VPGPafeDj0xPu7zHfCvyM97zuteivmdCfPwbb2ma49b5+8d7mGuaI9tzsXdtrrObhJp9nPeP+y03fkzMlb9cx2nnr1sO+qsgeeGo1PHiXs2ad/0t3Mrrfb6ztd4WB6rutwqzvBwuw4mKhjNWPGOWe2mnFuzj751I/X0dzEMDP18NCwu7+Z3sXf2MySux/fD4zPmnh7zr2LHVHu637mYNhhdc+5Gefe3bk5cjP2nMO0R20Nm/AMuXtm3IehH91F8961m6MH3/VqLxzaXHx20kOZsbrn3IzzFbPyezacWeqVR589zcWPx+8Mtbl4hH3n9FuvMMyEXT0TY4/cyi487oLvOgw1fHtT32zz7vWZ9Ow7T//3/WkvfjyHGffI3fdcchh8187pX1GfR85car5r9KIJ13j4D+DwwYz3TCNwvdv+NAff+1PzTijzZp2vdrXPnkmzL+HzX5yPn2bp4lFPGsZPGNfkzFKj/nngoauZ9KfAZ77r3Ux6njvlfW9qdPpfwDun87ifuVPee7qe5jnnD1qHDzo=
   </data>

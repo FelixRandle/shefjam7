@@ -30,7 +30,7 @@
    <image width="128" height="128" source="../images/items/tweet.png"/>
   </tile>
  </tileset>
- <layer id="2" name="Tweets" width="100" height="35">
+ <layer id="2" name="Tweets" width="100" height="35" visible="0">
   <data encoding="base64" compression="zlib">
    eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
   </data>
@@ -40,7 +40,7 @@
    eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
   </data>
  </layer>
- <layer id="1" name="Platforms" width="100" height="35">
+ <layer id="1" name="Platforms" width="100" height="35" visible="0">
   <data encoding="base64" compression="zlib">
    eAHtk+0KgzAMRf2393/jEeHCNbS1TugiHkHaJDcfO5nbxgMBCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIPIXA5ymDvmRO9lFr0eyDfdQiUGsavg/2UYtArWn4PthHLQLHaf79/1zZP3rpPVJYa638zVd/2dlsZ/HcT/o49UojWxr5dfb8it851Ttq9Ppkf7bv9J/NHfWM2Ciee7hed89v+aKG+12f68seaVoxr69+qjV7turO5l7R+ay6R77umsNt92Wtx5TT07T8OV+aOOPxmrL3QCOmuHK8tnJc477ePdfq6X71fwG1UAKv
   </data>
