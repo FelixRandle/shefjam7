@@ -188,8 +188,11 @@ class GameView(arcade.View):
 
         # Checking for winning score, assuming constant for now.
         if self.score == 3:
-            self.currentLevel += 1
-            self.setup()
+            if self.currentLevel == len(self.maps) - 1:
+                print("WINNER WINNER CHICKEN DINNER")
+            else:
+                self.currentLevel += 1
+                self.setup()
 
 
         # Scroll left
