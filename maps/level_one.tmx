@@ -37,34 +37,34 @@
  <tileset firstgid="11" name="items" tilewidth="128" tileheight="128" tilecount="17" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="1">
-   <image width="32" height="32" source="../images/items/Tan/tan_00.png"/>
+   <image source="../images/items/Tan/tan_00.png"/>
   </tile>
   <tile id="2">
-   <image width="32" height="32" source="../images/items/Tan/tan_01.png"/>
+   <image source="../images/items/Tan/tan_01.png"/>
   </tile>
   <tile id="3">
-   <image width="32" height="32" source="../images/items/Tan/tan_02.png"/>
+   <image source="../images/items/Tan/tan_02.png"/>
   </tile>
   <tile id="4">
-   <image width="32" height="32" source="../images/items/Tan/tan_03.png"/>
+   <image source="../images/items/Tan/tan_03.png"/>
   </tile>
   <tile id="5">
-   <image width="32" height="32" source="../images/items/Tan/tan_04.png"/>
+   <image source="../images/items/Tan/tan_04.png"/>
   </tile>
   <tile id="6">
-   <image width="32" height="32" source="../images/items/Tan/tan_05.png"/>
+   <image source="../images/items/Tan/tan_05.png"/>
   </tile>
   <tile id="7">
-   <image width="32" height="32" source="../images/items/Tan/tan_06.png"/>
+   <image source="../images/items/Tan/tan_06.png"/>
   </tile>
   <tile id="8">
-   <image width="32" height="32" source="../images/items/Tan/tan_07.png"/>
+   <image source="../images/items/Tan/tan_07.png"/>
   </tile>
   <tile id="9">
-   <image width="32" height="32" source="../images/items/Tan/tan_08.png"/>
+   <image source="../images/items/Tan/tan_08.png"/>
   </tile>
   <tile id="10">
-   <image width="32" height="32" source="../images/items/Tan/tan_09.png"/>
+   <image source="../images/items/Tan/tan_09.png"/>
   </tile>
   <tile id="11">
    <image width="32" height="32" source="../images/items/Tan/tan_10.png"/>
@@ -82,7 +82,7 @@
    <image width="32" height="32" source="../images/items/Tan/tan_14.png"/>
   </tile>
   <tile id="16">
-   <image width="32" height="32" source="../images/items/Tan/tan_00.png"/>
+   <image source="../images/items/Tan/tan_00.png"/>
    <animation>
     <frame tileid="1" duration="50"/>
     <frame tileid="2" duration="50"/>
@@ -105,7 +105,7 @@
    <image width="128" height="128" source="../images/items/tweet.png"/>
   </tile>
  </tileset>
- <layer id="2" name="Tweets" width="60" height="25" visible="0">
+ <layer id="2" name="Tweets" width="60" height="25">
   <data encoding="base64" compression="zlib">
    eAHtk8EKACAIQ/uQ/v87O4RXQ1Bxa10KInVvay0tI7DtoH0EASY/mLSMCAfpEF5OvDtSHDCy2L1h1wcTNA0qAk0EOv58R48mXCltPB7eXUpzFQkTqPSksnZY6EcPELgjzIgUmSyeWXWQ2GnWS0DeKwkvAgcsyQH5
   </data>
@@ -115,9 +115,9 @@
    eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDLwDAxdwAAE=
   </data>
  </layer>
- <layer id="1" name="Platforms" width="60" height="25" visible="0">
+ <layer id="1" name="Platforms" width="60" height="25">
   <data encoding="base64" compression="zlib">
-   eAHdlttOJDEMROcJlv//4Z0aOOKocJJmASGtpZ6y6+Kk0YB4vt1uz8Nzp/7Lyrt2TVx7fnLun/93nvXb78a77N7RGv5/RXYlTx+kzLlH/y70maudVzyrLDzvwBxkL1rw6Y03F28K7nV6n+FB9AnjOdXKs+KnfdwFjMd5+MZpF1x7mdEnjCe18+LB9wh88sM7iIb7w3BH7mCU/KGNL98HP+F21brPQgN3e04aO3o/fPLp+T6Du73TLu+bsmRWWviTB31C9kbrwg/PbESb0D73kxcuvpT95qw9jG9e+h2yJx72n/z4wJPf32W+E/4d6bzvtNJWntOdnMPb2Gd6dt48fe/yjOcKdm53Lt5pr3P4Jpyyn+G+stN35MyJW2n2dp959bDvKrIHPzMYnj5ImTOPfsJdZqft9vpOV3x4OtdzfKs74d15rE17Ji6ZVXFm4xX/5PEe9OlO7Zs8p3x053Z/M72Lv7HJ0lv33ezxWZPfnPveFy0c97WOFpzKd3A/ecN5d/dTxh50n7PS7SEXhCcH13Pz6OTRg7tq/7TnlF/tILfb2dlk2m8PO0Fr7tEbV54V73w8PPDMzpujt7/7ePx71Rn8wWiUe7jGKx4ynDvh5DFHb2QPHHeB9xwPM/7mJt3e9lvrM9HMu4/+cn+aCx/OZY81euvOpccD79k9+hX0efTkMvNdQwumPMPBPwyHDzLeM0Xw9W7zUw5/78/MO4Hk7XW/2tU8eybMvpTPf2U+ftqLCsc8YTx+4vFMT5YZ9M8DDlxlok8FT5558sLZ49yp73szg9P/At6Z8z2np5rfzclYP53rc/4CXqQPHw==
+   eAHdlu1uU1EMBPuLAu//wDBNRp0an5uAipCwdLP27trn4yZVX19eXl6X5yf1XwZnnbFx0/M363n/n7nWvz6bZ7k6YzX9f4rM+n5vBnl6B12r+b3l06BrnoY+4zn1ynsGa9C5auCXO18OLyF3q95reVF9QzyP4uQ58ds89+K7xdN+9YnbLLnptVbfEA/RfdyY9089MM3fHY+zrQ/ua1qp5xP5lxQv34c+cFcxdc8t0js9V/NOmjOcC8LJ00fu91mEP4X9E09+eLysvQUa4bxb9fFT7YS6nWUN2iNnXVTbsL7mm1cOH9F79/xqzro5b/s0v0L78ZA799TjOsWTFx5fv8t+J/obmf30nEJNnD74k4a3mt7ea/U5e/afdOdO3Pwnzj25H3Hzo53eW/vIT88293e4be6z/dveu+85Z2rtr7btqdyc+6i2V5+1CG8OGuS+z+5V/RF21vReadPbmj6f8jPH0z3bAxKzlnsTx4d3oMcZw/Y2E67r6jn1qE/s/ppPn7WebW086qDRXI5+vXCbR++muX61q7+ZneXfWHrNq8P30eOaesH65OEMenpWNdD9zhl6nFGs1rye5p098/rM6ynXXE+57W7Q8RLtMa+Gx7sq6nEGeBXTP9e66kXzXenb+uW2M8/1maNfTXSNYrXm9TQ/eU58ez1rveQ+eq1B3021mePzN4Nmn74imtFcbuIzHnvw8rhn6844cc4oel9yzpkz5PHPUINvPn3WJw+8j15QbiLat6HDEXgb877U9HW2mjjPbA96c/3PoPe+rQvnd23qrcmN5nIb6uuczdcz24Ov+danx/t2Dn2eSbS/e2nurMnJu4ZzNqSXAOe6b0I+uldp+6037P70T06e/ql1X1NzvfJX53ad+p1xQnvQ2/con/u2Frf/BTpzW8891mfuuYtohJ7W9TXXQ98PNPMQGA==
   </data>
  </layer>
 </map>
