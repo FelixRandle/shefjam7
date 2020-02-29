@@ -55,6 +55,9 @@ class MyGame(arcade.Window):
         # Keep track of the score
         self.score = 0
 
+        #Keep track of health
+        self.health = 100
+
         # Load sounds
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
@@ -71,6 +74,9 @@ class MyGame(arcade.Window):
         # Keep track of the score
         self.score = 0
 
+        #Keep track of health
+        self.health = 100
+
         # Create the Sprite lists
         self.player_list = arcade.SpriteList()
         self.wall_list = arcade.SpriteList()
@@ -80,7 +86,7 @@ class MyGame(arcade.Window):
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
         self.player_sprite.center_x = 64
-        self.player_sprite.center_y = 64
+        self.player_sprite.center_y = 96
         self.player_list.append(self.player_sprite)
 
 
@@ -123,6 +129,16 @@ class MyGame(arcade.Window):
         self.coin_list.draw()
         self.player_list.draw()
 
+        # Draw our score on the screen, scrolling it with the viewport
+        score_text = f"Score: {self.score}"
+        arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
+                         arcade.csscolor.WHITE, 18)
+
+        # Draw our health on the screen, scrolling it with the viewport
+        health_text = f"Health: {self.health}"
+        arcade.draw_text(health_text, 10 + self.view_left, 30 + self.view_bottom,
+                         arcade.csscolor.WHITE, 18)
+
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
 
@@ -161,6 +177,7 @@ class MyGame(arcade.Window):
             arcade.play_sound(self.collect_coin_sound)
             # Add one to the score
             self.score += 1
+            self.health -= 10
 
         # --- Manage Scrolling ---
 
