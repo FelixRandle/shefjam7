@@ -11,6 +11,8 @@ class Character(arcade.Sprite):
         self.center_x = 64
         self.center_y = 96
 
+        self.health = 0
+
         self.movingLeft = False
         self.movingRight = False
 
