@@ -12,7 +12,6 @@ SCREEN_HEIGHT = 650
 SCREEN_TITLE = "Trump Game"
 
 # Movement speed of player, in pixels per frame
-PLAYER_MOVEMENT_SPEED = 5
 GRAVITY = 1.1
 PLAYER_JUMP_SPEED = 20
 
@@ -83,7 +82,7 @@ class MyGame(arcade.Window):
         self.score = 0
 
         #Keep track of health
-        self.health = 100
+        self.health = 30
 
         # Create the Sprite lists
         self.player_list = arcade.SpriteList()
@@ -137,22 +136,25 @@ class MyGame(arcade.Window):
             if self.physics_engine.can_jump():
                 self.player.change_y = PLAYER_JUMP_SPEED
                 arcade.play_sound(self.jump_sound)
-        elif key == arcade.key.LEFT or key == arcade.key.A:
-            self.player.change_x = -PLAYER_MOVEMENT_SPEED
-        elif key == arcade.key.RIGHT or key == arcade.key.D:
-            self.player.change_x = PLAYER_MOVEMENT_SPEED
+        if key == arcade.key.LEFT or key == arcade.key.A:
+            self.player.movingLeft = True
+        if key == arcade.key.RIGHT or key == arcade.key.D:
+            self.player.movingRight = True
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
 
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.player.change_x = 0
-        elif key == arcade.key.RIGHT or key == arcade.key.D:
-            self.player.change_x = 0
+        if key == arcade.key.LEFT or key == arcade.key.A:
+            self.player.movingLeft = False
+        if key == arcade.key.RIGHT or key == arcade.key.D:
+            self.player.movingRight = False
 
     def on_update(self, delta_time):
         """ Movement and game logic """
 
+        self.player.setSpeed()
         # Move the player with the physics engine
         self.physics_engine.update()
 
