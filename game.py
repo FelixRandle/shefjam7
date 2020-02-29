@@ -56,7 +56,7 @@ class GameView(arcade.View):
 
         self.maps = [
             {
-                "map": map.Map("./maps/level_one.tmx"),
+                "map": map.Map("./maps/bush_level.tmx"),
                 "scoreTarget": 10
             },
             {
