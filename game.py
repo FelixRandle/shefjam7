@@ -180,6 +180,9 @@ class GameView(arcade.View):
 
         changed = False
 
+        if self.player.center_y < 0:
+            self.health = 0
+
         #checking for health low
         if self.health == 0:
             game_over_view = menu.GameOverView()
