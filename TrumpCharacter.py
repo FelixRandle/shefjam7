@@ -2,9 +2,13 @@ import arcade
 import character
 import random
 import os
+import math
+import constants
 
 
 # Constants used to track if the player is facing left or right
+import projectile
+
 RIGHT_FACING = 1
 LEFT_FACING = 0
 
@@ -35,7 +39,9 @@ class PlayerCharacter(character.Character):
         self.jumping = False
         self.climbing = False
         self.is_on_ladder = False
+        self.projectiles = []
         self.scale = character.CHARACTER_SCALING
+        self.aimPosition = [0, 0]
 
         # Adjust the collision box. Default includes too much empty space
         # side-to-side. Box is centered at sprite center, (0, 0)
@@ -54,7 +60,7 @@ class PlayerCharacter(character.Character):
             texture = load_texture_pair(f"{main_path}_{i}.png")
             self.walk_textures.append(texture)
 
-    def update_animation(self, delta_time: float = 1/60):
+    def update(self, delta_time: float = 1/60):
 
         # Figure out if we need to flip face left or right
         if self.change_x < 0 and self.character_face_direction == RIGHT_FACING:
@@ -72,3 +78,17 @@ class PlayerCharacter(character.Character):
         if self.cur_texture > len(self.walk_textures) - 1:
             self.cur_texture = 0
         self.texture = self.walk_textures[self.cur_texture][self.character_face_direction]
+
+    def shootProjectile(self):
+        # Shooting Logic
+
+        # Calculate speed for X and Y
+        xDiff = self.aimPosition[0] - self.center_x
+        yDiff = self.aimPosition[1] - self.center_y
+        pointDiff = math.sqrt((xDiff ** 2) + (yDiff ** 2))
+
+        multiplier = constants.PROJECTILE_SPEED / pointDiff
+        self.projectiles.append(projectile.Projectile(self.center_x, self.center_y, xDiff * multiplier, yDiff * multiplier))
+
+
+

@@ -128,6 +128,11 @@ class GameView(arcade.View):
         self.damage_list.draw()
         self.player_list.draw()
         self.tan_list.draw()
+        try:
+            for projectile in self.player.projectiles:
+                projectile.draw()
+        except AttributeError:
+            pass
 
         # Draw our score on the screen, scrolling it with the viewport
         score_text = f"Score: {self.score}"
@@ -159,12 +164,33 @@ class GameView(arcade.View):
         if key == arcade.key.RIGHT or key == arcade.key.D:
             self.player.movingRight = False
 
+    def on_mouse_motion(self, x, y, dx, dy):
+        """ Called to update our objects. Happens approximately 60 times per second."""
+        print(x,y)
+        print(dx,dy)
+        self.player.aimPosition = [x - self.player.center_x + self.view_left,
+                                   y - self.player.center_y + self.view_bottom]
+        print(self.player.aimPosition)
+
+    def on_mouse_press(self, x, y, button, modifiers):
+        """
+        Called when the user presses a mouse button.
+        """
+        if button == arcade.MOUSE_BUTTON_LEFT:
+            self.player.shootProjectile()
+
+
     def on_update(self, delta_time):
         """ Movement and game logic """
         self.frame_number += 1
         self.player.setSpeed()
 
-        self.player.update_animation()
+        self.player.update()
+        try:
+            for projectile in self.player.projectiles:
+                projectile.update()
+        except AttributeError:
+            pass
         # Slow down animation by 3x
         if self.frame_number % 3 == 0:
             for tan in self.tan_list:
