@@ -21,7 +21,6 @@ class Map:
         self.damage_list = arcade.tilemap.process_layer(my_map, damage_layer_name, TILE_SCALING)
 
         # -- Tweets
-
         self.tweet_list = arcade.tilemap.process_layer(my_map, tweets_layer_name, TILE_SCALING)
 
         # --- Other stuff

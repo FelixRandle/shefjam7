@@ -53,9 +53,18 @@ class GameView(arcade.View):
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
 
         self.maps = [
-            "./maps/level_one.tmx",
-            "./maps/level_two.tmx",
-            "./maps/level_three.tmx"
+            {
+                "map": map.Map("./maps/level_one.tmx"),
+                "scoreTarget": 6
+            },
+            {
+                "map": map.Map("./maps/level_two.tmx"),
+                "scoreTarget": 6
+            },
+            {
+                "map": map.Map("./maps/level_three.tmx"),
+                "scoreTarget": 3
+            }
         ]
 
         self.currentLevel = 0
@@ -87,7 +96,7 @@ class GameView(arcade.View):
 
 
         # --- Load in a map from the tiled editor ---
-        self.map = map.Map(self.maps[self.currentLevel])
+        self.map = self.maps[self.currentLevel]["map"]
 
         self.wall_list = self.map.wall_list
         self.damage_list = self.map.damage_list
@@ -135,8 +144,6 @@ class GameView(arcade.View):
         """Called when the user releases a key. """
 
         if key == arcade.key.LEFT or key == arcade.key.A:
-            self.player.change_x = 0
-        if key == arcade.key.LEFT or key == arcade.key.A:
             self.player.movingLeft = False
         if key == arcade.key.RIGHT or key == arcade.key.D:
             self.player.movingRight = False
@@ -163,7 +170,7 @@ class GameView(arcade.View):
 
         # See if we hit any damage
         tweet_hit_list = arcade.check_for_collision_with_list(self.player,
-                                                               self.tweet_list)
+                                                              self.tweet_list)
 
         # Loop through each coin we hit (if any) and remove it
         for item in tweet_hit_list:
@@ -190,7 +197,7 @@ class GameView(arcade.View):
             self.window.show_view(game_over_view)
 
         # Checking for winning score, assuming constant for now.
-        if self.score == 3:
+        if self.score == self.maps[self.currentLevel]["scoreTarget"]:
             if self.currentLevel == len(self.maps) - 1:
                 print("WINNER WINNER CHICKEN DINNER")
             else:
