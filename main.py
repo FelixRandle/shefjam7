@@ -56,7 +56,7 @@ class MyGame(arcade.Window):
         self.score = 0
 
         #Keep track of health
-        self.health = 100
+        self.health = 3
 
         # Load sounds
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
@@ -75,7 +75,7 @@ class MyGame(arcade.Window):
         self.score = 0
 
         #Keep track of health
-        self.health = 100
+        self.health = 3
 
         # Create the Sprite lists
         self.player_list = arcade.SpriteList()
@@ -180,13 +180,18 @@ class MyGame(arcade.Window):
             arcade.play_sound(self.collect_coin_sound)
             # Add one to the score
             self.score += 1
-            self.health -= 10
+            self.health -= 1
 
         # --- Manage Scrolling ---
 
         # Track if we need to change the viewport
 
         changed = False
+
+        #checking for health low
+        if self.health == 0:
+            print("GAME OVER")
+
 
         # Scroll left
         left_boundary = self.view_left + LEFT_VIEWPORT_MARGIN
