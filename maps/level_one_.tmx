@@ -42,32 +42,15 @@
   <tile id="18">
    <image width="32" height="32" source="../images/items/Tan/tan_0.png"/>
   </tile>
-<<<<<<< Updated upstream
  </tileset>
  <layer id="2" name="Tweets" width="60" height="25">
   <data encoding="base64" compression="zlib">
-   eAHt00EKACAIRFEP0v3PGS3cm0jMxA/aVTgvjWAhgAACCCCAAAIIIKAvsPRLvKrwtzxX4TmMQENgamam3mlE4IqpAD1j+nGUbStwZi53JYT7jGZW9Rzq9VV65dWZDT85AW0=
-=======
- </tileset>
- <tileset firstgid="30" name="enemies" tilewidth="128" tileheight="128" tilecount="1" columns="0">
-  <grid orientation="orthogonal" width="1" height="1"/>
-  <tile id="0">
-   <image width="128" height="128" source="../images/enemies/koala.png"/>
-  </tile>
- </tileset>
- <layer id="2" name="Tweets" width="60" height="25">
-  <data encoding="base64" compression="zlib">
-   eAHtk0EKACEMA33I/v+dsgcvHgJCG0yMIArFppnWMbIWgW9dcl5BwKkfTl6uGA7TItCcoJgpDhlb7r1x9yczaCk0BEgEGH+eoUHCVSKDeKBYiXiSHBPo7Eln7mOjDz1Q4K5Qo9LIVPGsyqPEjlnrz3ffTH2k1dH73WuHBvKUWC2BCaLnAxE=
->>>>>>> Stashed changes
+   eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDLwDAxdwAAE=
   </data>
  </layer>
  <layer id="4" name="Tan" width="60" height="25">
   <data encoding="base64" compression="zlib">
-<<<<<<< Updated upstream
-   eAHt0QEBAAAIwjCK2L+mOcTR4CMxAgQIECBAgAABAgQIECBAgACBRoFpjHrc5M/H50s/I7AgHwA7
-=======
-   eAHt0DERAAAMAjGM1L/NimBgCQaeS2IECBAgQIAAAQIECBAgQIAAAQIECBAgsBa49QH9WuABSqQAHg==
->>>>>>> Stashed changes
+   eAHt0DENAAAIA0GEgH+bWOgIyXX+obkqI0CAAAECBAgQIEDgq0B/Pe43AQIECBAgQCAQmKCRELgksKtjADo=
   </data>
  </layer>
  <layer id="3" name="Damage" width="60" height="25">
@@ -77,7 +60,7 @@
  </layer>
  <layer id="1" name="Platforms" width="60" height="25">
   <data encoding="base64" compression="zlib">
-   eAHtllFrAzEMg/u0wf7/D17F+ECoTs5Jr6PQC6SyZcn2HffQ2+061xu43sD1Bq438Klv4PvDHvydnvc/dhnNEF/dV34Oo13OnLkyY0W7s+PZ/dUve8KBsz3Tm1rqYNaP8l1f9qUPqLriKocHvZfrnSemDsJ3cdfn/ekhJFbdY/LkxOvAg3/s4y918FExZ9KnfHR/7rW86fdps5rrFKMFs05OHYTv4opP2ryjOV2d/GiJRz29Ls/OYVbH71piZnqevag54ktM76h+pEsfufs8pu6o+tf9OqquPK/4PF1Nx6deOyd97FT1ouZY6bpczpav4qp+XV162T155dkTrWPle4arZlb9UldpKm7FJ231PVd9Vzj19dvxruzt/fCBXvPY9xnFrq9ifNTIE6nPUJ6d0/HlPp53Z1Ye5zz2nuKrM+IrrXPMcc5j6qB/z65TPNsBP4ie3NH7iq/OiK+0zo18Pv/smPlHfaWb7UefFVS//I+o/GiXd6ivPCfaXxoNCD8=
+   eAHtVtmOAjEM44k9/v+DFwtZY1m5CgNaiUYqOew4aTUPXC7b9gvsF9gvsF/gU1/g68Mu/p/u+45dshmoR+eVn0O2y5kzV2ascB/Z8Wx96Lkma/TfxaLe69QOd77nz/ZTjzr0qCOOctSyOysfGm4d7nzPn+2HHjXgGWsdMYy4+jty/Gr/UT2iDj+YceT9uovHvzcJP7HqveraFZdY19Ph1Mn8Sj+4fipd5WY81Mlj3HErvMM4C74z5TJmj+auRUw9+9x77yrufM9VX2PnIQd+Nc86MD2ouymOOLKoPumLtKKa61M74xKnj3jTms9GX1Sb6k14lb5jyP1MZqxwopkr/R3X9Ss+uNH3XPV02M+NUL3hyn7dLOBTPd+J+SMa3Cu663Qfaqz6iT7vFvnpPO1lj9Y0Jg6P+pnW6ekeiPV79j0qLddBr9eYq26lqbxpnOlxducxp+M4zt287jm1yZ966GQGzP8jIvfZWQ7dDHt1HbNX7Q/ZOQfA
   </data>
  </layer>
 </map>

@@ -183,7 +183,7 @@ class GameView(arcade.View):
             # Play a sound
             arcade.play_sound(self.collect_coin_sound)
             # Add one to the score
-            self.health -= 10
+            self.health -= 1
 
         # See if we hit any damage
         tweet_hit_list = arcade.check_for_collision_with_list(self.player,
