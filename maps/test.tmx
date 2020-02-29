@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="100" tilewidth="32" tileheight="32" infinite="1" nextlayerid="2" nextobjectid="1">
+ <editorsettings>
+  <export target="test..tmx" format="tmx"/>
+ </editorsettings>
+ <tileset firstgid="1" name="tileset" tilewidth="320" tileheight="320" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="320" height="320" source="../images/platforms/icex100.png"/>
+   <objectgroup draworder="index" id="3">
+    <object id="2" x="10" y="10" width="100" height="9.75"/>
+    <object id="3" x="30" y="20" width="59.875" height="10"/>
+    <object id="4" x="40" y="30.125" width="39.875" height="19.75"/>
+    <object id="5" x="60" y="49.875" width="10" height="10.125"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer id="1" name="Platforms" width="100" height="100" offsetx="22.0606" offsety="-86.6667">
+  <data encoding="base64" compression="zlib">
+   <chunk x="-16" y="0" width="16" height="16">
+   eAFjYBgFoyEwMCHASAdrQXbgw3RwwqC2AgAOFAAK
+  </chunk>
+   <chunk x="0" y="0" width="16" height="16">
+   eAFjYBgFoyFAWQgwYtGOLobOx6KFLCGQuZRgsiwdRpoAGxwAFA==
+  </chunk>
+   <chunk x="16" y="0" width="16" height="16">
+   eAFjYBgFoyEwdEOAEeh0YvDQ9SFtXQ4AD8wACw==
+  </chunk>
+  </data>
+ </layer>
+</map>

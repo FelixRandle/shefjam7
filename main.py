@@ -15,7 +15,7 @@ COIN_SCALING = 0.5
 
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 5
-GRAVITY = 1
+GRAVITY = 1.1
 PLAYER_JUMP_SPEED = 20
 
 # How many pixels to keep as a minimum margin between the character
@@ -80,35 +80,32 @@ class MyGame(arcade.Window):
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
         self.player_sprite.center_x = 64
-        self.player_sprite.center_y = 96
+        self.player_sprite.center_y = 64
         self.player_list.append(self.player_sprite)
 
-        # Create the ground
-        # This shows using a loop to place multiple sprites horizontally
-        for x in range(0, 1250, 64):
-            wall = arcade.Sprite(":resources:images/tiles/grassMid.png", TILE_SCALING)
-            wall.center_x = x
-            wall.center_y = 32
-            self.wall_list.append(wall)
 
-        # Put some crates on the ground
-        # This shows using a coordinate list to place sprites
-        coordinate_list = [[512, 96],
-                           [256, 96],
-                           [768, 96]]
+        # --- Load in a map from the tiled editor ---
 
-        for coordinate in coordinate_list:
-            # Add a crate on the ground
-            wall = arcade.Sprite(":resources:images/tiles/boxCrate_double.png", TILE_SCALING)
-            wall.position = coordinate
-            self.wall_list.append(wall)
+        # Name of map file to load
+        map_name = "./maps/map.tmx"
+        # Name of the layer in the file that has our platforms/walls
+        platforms_layer_name = 'Platforms'
+        # Name of the layer that has items for pick-up
+        coins_layer_name = 'Coins'
 
-        # Use a loop to place some coins for our character to pick up
-        for x in range(128, 1250, 256):
-            coin = arcade.Sprite(":resources:images/items/coinGold.png", COIN_SCALING)
-            coin.center_x = x
-            coin.center_y = 96
-            self.coin_list.append(coin)
+        # Read in the tiled map
+        my_map = arcade.tilemap.read_tmx(map_name)
+
+        # -- Platforms
+        self.wall_list = arcade.tilemap.process_layer(my_map, platforms_layer_name, TILE_SCALING)
+
+        # -- Coins
+        self.coin_list = arcade.tilemap.process_layer(my_map, coins_layer_name, TILE_SCALING)
+
+        # --- Other stuff
+        # Set the background color
+        if my_map.background_color:
+            arcade.set_background_color(my_map.background_color)
 
         # Create the 'physics engine'
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite,
@@ -125,11 +122,6 @@ class MyGame(arcade.Window):
         self.wall_list.draw()
         self.coin_list.draw()
         self.player_list.draw()
-
-        # Draw our score on the screen, scrolling it with the viewport
-        score_text = f"Score: {self.score}"
-        arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
-                         arcade.csscolor.WHITE, 18)
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
