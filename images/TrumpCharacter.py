@@ -28,7 +28,7 @@ class PlayerCharacter(arcade.Sprite):
         # --- Load Textures ---
 
         # Images from Kenney.nl's Asset Pack 3
-        main_path = ":resources:images/animated_characters/female_adventurer/femaleAdventurer"
+        main_path = "Assets/Trump/Pixelated/Running"
         # main_path = ":resources:images/animated_characters/female_person/femalePerson"
         # main_path = ":resources:images/animated_characters/male_person/malePerson"
         # main_path = ":resources:images/animated_characters/male_adventurer/maleAdventurer"
@@ -40,7 +40,7 @@ class PlayerCharacter(arcade.Sprite):
 
         # Load textures for walking
         self.walk_textures = []
-        for i in range(8):
+        for i in range(5):
             texture = load_texture_pair(f"{main_path}_walk{i}.png")
             self.walk_textures.append(texture)
 
