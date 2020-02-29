@@ -39,7 +39,7 @@ class PlayerCharacter(character.Character):
 
         # Adjust the collision box. Default includes too much empty space
         # side-to-side. Box is centered at sprite center, (0, 0)
-        self.points = [[-7, -30], [7, -30], [18, 25], [-18, 25]]
+        self.points = [[-18, -30], [18, -30], [18, 25], [-18, 25]]
 
         # --- Load Textures ---
 

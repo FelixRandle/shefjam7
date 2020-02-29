@@ -190,6 +190,7 @@ class GameView(arcade.View):
 
         # Checking for low health.
         if self.health == 0:
+            arcade.set_viewport(0, constants.SCREEN_WIDTH, 0, constants.SCREEN_HEIGHT)
             game_over_view = menu.GameOverView()
             self.window.set_mouse_visible(True)
             self.window.show_view(game_over_view)
