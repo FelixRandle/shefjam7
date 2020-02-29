@@ -188,6 +188,11 @@ class MyGame(arcade.Window):
 
         changed = False
 
+        #checking for health low
+        if self.health == 0:
+            print("GAME OVER")
+
+
         # Scroll left
         left_boundary = self.view_left + LEFT_VIEWPORT_MARGIN
         if self.player.left < left_boundary:
