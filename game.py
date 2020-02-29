@@ -186,6 +186,19 @@ class GameView(arcade.View):
             self.health -= 10
 
         # See if we hit any damage
+        tan_hit_list = arcade.check_for_collision_with_list(self.player,
+                                                            self.tan_list)
+
+        # Loop through each coin we hit (if any) and remove it
+        for item in tan_hit_list:
+            # Remove the coin
+            tan.remove_from_sprite_lists()
+            # Play a sound
+            arcade.play_sound(self.collect_coin_sound)
+            # Add one to the score
+            self.player.health += 10
+
+        # See if we hit any damage
         tweet_hit_list = arcade.check_for_collision_with_list(self.player,
                                                               self.tweet_list)
 
