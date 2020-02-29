@@ -2,6 +2,7 @@ import arcade
 
 import map
 import character
+import TrumpCharacter
 import menu
 import constants
 
@@ -93,7 +94,7 @@ class GameView(arcade.View):
 
         # Set up the player
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
-        self.player = character.Character(image_source)
+        self.player = TrumpCharacter.PlayerCharacter(image_source)
         self.player_list.append(self.player)
 
 
@@ -154,6 +155,7 @@ class GameView(arcade.View):
         """ Movement and game logic """
 
         self.player.setSpeed()
+        self.player.update_animation()
         # Move the player with the physics engine
         self.physics_engine.update()
 
