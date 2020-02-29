@@ -109,6 +109,8 @@ class GameView(arcade.View):
                                                              self.wall_list,
                                                              GRAVITY)
 
+        self.base_viewport = arcade.get_viewport()
+
     def on_draw(self):
         """ Render the screen. """
 
@@ -189,8 +191,7 @@ class GameView(arcade.View):
             self.health = 0
 
         # Checking for low health.
-        if self.health == 0:
-            arcade.set_viewport(0, constants.SCREEN_WIDTH, 0, constants.SCREEN_HEIGHT)
+        if self.health <= 0:
             game_over_view = menu.GameOverView()
             self.window.set_mouse_visible(True)
             self.window.show_view(game_over_view)
