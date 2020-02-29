@@ -13,8 +13,6 @@ class Map:
 
         # Read in the tiled map
         my_map = arcade.tilemap.read_tmx(map_name)
-        print(my_map)
-        print(map_name)
 
         # -- Platforms
         self.wall_list = arcade.tilemap.process_layer(my_map, platforms_layer_name, TILE_SCALING)

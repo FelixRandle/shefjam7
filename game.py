@@ -87,7 +87,6 @@ class GameView(arcade.View):
 
 
         # --- Load in a map from the tiled editor ---
-        print(self.maps[self.currentLevel])
         self.map = map.Map(self.maps[self.currentLevel])
 
         self.wall_list = self.map.wall_list
