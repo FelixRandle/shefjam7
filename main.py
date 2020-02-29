@@ -3,15 +3,13 @@ Platformer Game
 """
 import arcade
 
+import map
+import character
+
 # Constants
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
-SCREEN_TITLE = "Platformer"
-
-# Constants used to scale our sprites from their original size
-CHARACTER_SCALING = 1
-TILE_SCALING = 0.5
-COIN_SCALING = 0.5
+SCREEN_TITLE = "Trump Game"
 
 # Movement speed of player, in pixels per frame
 PLAYER_MOVEMENT_SPEED = 5
@@ -20,10 +18,10 @@ PLAYER_JUMP_SPEED = 20
 
 # How many pixels to keep as a minimum margin between the character
 # and the edge of the screen.
-LEFT_VIEWPORT_MARGIN = 250
-RIGHT_VIEWPORT_MARGIN = 250
-BOTTOM_VIEWPORT_MARGIN = 50
-TOP_VIEWPORT_MARGIN = 100
+LEFT_VIEWPORT_MARGIN = 300
+RIGHT_VIEWPORT_MARGIN = 300
+BOTTOM_VIEWPORT_MARGIN = 150
+TOP_VIEWPORT_MARGIN = 150
 
 
 class MyGame(arcade.Window):
@@ -38,15 +36,17 @@ class MyGame(arcade.Window):
 
         # These are 'lists' that keep track of our sprites. Each sprite should
         # go into a list.
-        self.coin_list = None
+        self.damage_list = None
         self.wall_list = None
+        self.tweet_list = None
         self.player_list = None
 
         # Separate variable that holds the player sprite
-        self.player_sprite = None
+        self.player = None
 
         # Our physics engine
         self.physics_engine = None
+        self.map = None
 
         # Used to keep track of our scrolling
         self.view_bottom = 0
@@ -61,6 +61,14 @@ class MyGame(arcade.Window):
         # Load sounds
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
+
+        self.maps = [
+            map.Map("./maps/level_one.tmx"),
+            map.Map("./maps/level_two.tmx"),
+            map.Map("./maps/level_three.tmx")
+        ]
+
+        self.currentLevel = 0
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
@@ -84,37 +92,19 @@ class MyGame(arcade.Window):
 
         # Set up the player, specifically placing it at these coordinates.
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
-        self.player_sprite = arcade.Sprite(image_source, CHARACTER_SCALING)
-        self.player_sprite.center_x = 64
-        self.player_sprite.center_y = 96
-        self.player_list.append(self.player_sprite)
+        self.player = character.Character(image_source)
+        self.player_list.append(self.player)
 
 
         # --- Load in a map from the tiled editor ---
 
-        # Name of map file to load
-        map_name = "./maps/map.tmx"
-        # Name of the layer in the file that has our platforms/walls
-        platforms_layer_name = 'Platforms'
-        # Name of the layer that has items for pick-up
-        coins_layer_name = 'Coins'
+        self.map = self.maps[self.currentLevel]
 
-        # Read in the tiled map
-        my_map = arcade.tilemap.read_tmx(map_name)
+        self.wall_list = self.map.wall_list
+        self.damage_list = self.map.damage_list
+        self.tweet_list = self.map.tweet_list
 
-        # -- Platforms
-        self.wall_list = arcade.tilemap.process_layer(my_map, platforms_layer_name, TILE_SCALING)
-
-        # -- Coins
-        self.coin_list = arcade.tilemap.process_layer(my_map, coins_layer_name, TILE_SCALING)
-
-        # --- Other stuff
-        # Set the background color
-        if my_map.background_color:
-            arcade.set_background_color(my_map.background_color)
-
-        # Create the 'physics engine'
-        self.physics_engine = arcade.PhysicsEnginePlatformer(self.player_sprite,
+        self.physics_engine = arcade.PhysicsEnginePlatformer(self.player,
                                                              self.wall_list,
                                                              GRAVITY)
 
@@ -126,7 +116,8 @@ class MyGame(arcade.Window):
 
         # Draw our sprites
         self.wall_list.draw()
-        self.coin_list.draw()
+        self.tweet_list.draw()
+        self.damage_list.draw()
         self.player_list.draw()
 
         # Draw our score on the screen, scrolling it with the viewport
@@ -144,20 +135,20 @@ class MyGame(arcade.Window):
 
         if key == arcade.key.UP or key == arcade.key.W or key == arcade.key.SPACE:
             if self.physics_engine.can_jump():
-                self.player_sprite.change_y = PLAYER_JUMP_SPEED
+                self.player.change_y = PLAYER_JUMP_SPEED
                 arcade.play_sound(self.jump_sound)
         elif key == arcade.key.LEFT or key == arcade.key.A:
-            self.player_sprite.change_x = -PLAYER_MOVEMENT_SPEED
+            self.player.change_x = -PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.RIGHT or key == arcade.key.D:
-            self.player_sprite.change_x = PLAYER_MOVEMENT_SPEED
+            self.player.change_x = PLAYER_MOVEMENT_SPEED
 
     def on_key_release(self, key, modifiers):
         """Called when the user releases a key. """
 
         if key == arcade.key.LEFT or key == arcade.key.A:
-            self.player_sprite.change_x = 0
+            self.player.change_x = 0
         elif key == arcade.key.RIGHT or key == arcade.key.D:
-            self.player_sprite.change_x = 0
+            self.player.change_x = 0
 
     def on_update(self, delta_time):
         """ Movement and game logic """
@@ -165,19 +156,31 @@ class MyGame(arcade.Window):
         # Move the player with the physics engine
         self.physics_engine.update()
 
-        # See if we hit any coins
-        coin_hit_list = arcade.check_for_collision_with_list(self.player_sprite,
-                                                             self.coin_list)
+        # See if we hit any damage
+        damage_hit_list = arcade.check_for_collision_with_list(self.player,
+                                                               self.damage_list)
 
         # Loop through each coin we hit (if any) and remove it
-        for coin in coin_hit_list:
+        for item in damage_hit_list:
             # Remove the coin
-            coin.remove_from_sprite_lists()
+            item.remove_from_sprite_lists()
+            # Play a sound
+            arcade.play_sound(self.collect_coin_sound)
+            # Add one to the score
+            self.health -= 10
+
+        # See if we hit any damage
+        tweet_hit_list = arcade.check_for_collision_with_list(self.player,
+                                                               self.tweet_list)
+
+        # Loop through each coin we hit (if any) and remove it
+        for item in tweet_hit_list:
+            # Remove the coin
+            item.remove_from_sprite_lists()
             # Play a sound
             arcade.play_sound(self.collect_coin_sound)
             # Add one to the score
             self.score += 1
-            self.health -= 10
 
         # --- Manage Scrolling ---
 
@@ -187,26 +190,26 @@ class MyGame(arcade.Window):
 
         # Scroll left
         left_boundary = self.view_left + LEFT_VIEWPORT_MARGIN
-        if self.player_sprite.left < left_boundary:
-            self.view_left -= left_boundary - self.player_sprite.left
+        if self.player.left < left_boundary:
+            self.view_left -= left_boundary - self.player.left
             changed = True
 
         # Scroll right
         right_boundary = self.view_left + SCREEN_WIDTH - RIGHT_VIEWPORT_MARGIN
-        if self.player_sprite.right > right_boundary:
-            self.view_left += self.player_sprite.right - right_boundary
+        if self.player.right > right_boundary:
+            self.view_left += self.player.right - right_boundary
             changed = True
 
         # Scroll up
         top_boundary = self.view_bottom + SCREEN_HEIGHT - TOP_VIEWPORT_MARGIN
-        if self.player_sprite.top > top_boundary:
-            self.view_bottom += self.player_sprite.top - top_boundary
+        if self.player.top > top_boundary:
+            self.view_bottom += self.player.top - top_boundary
             changed = True
 
         # Scroll down
         bottom_boundary = self.view_bottom + BOTTOM_VIEWPORT_MARGIN
-        if self.player_sprite.bottom < bottom_boundary:
-            self.view_bottom -= bottom_boundary - self.player_sprite.bottom
+        if self.player.bottom < bottom_boundary:
+            self.view_bottom -= bottom_boundary - self.player.bottom
             changed = True
 
         if changed:
