@@ -5,6 +5,7 @@ import character
 import TrumpCharacter
 import menu
 import constants
+import animatedItem as item
 
 # Movement speed of player, in pixels per frame
 GRAVITY = 1.1
@@ -69,6 +70,7 @@ class GameView(arcade.View):
         ]
 
         self.currentLevel = 0
+        self.frame_number = 0
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
@@ -91,12 +93,12 @@ class GameView(arcade.View):
         self.wall_list = arcade.SpriteList()
         self.damage_list = arcade.SpriteList()
         self.tweet_list = arcade.SpriteList()
+        self.tan_list = arcade.SpriteList()
 
         # Set up the player
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         self.player = TrumpCharacter.PlayerCharacter(image_source)
         self.player_list.append(self.player)
-
 
         # --- Load in a map from the tiled editor ---
         self.map = self.maps[self.currentLevel]["map"]
@@ -104,6 +106,9 @@ class GameView(arcade.View):
         self.wall_list = self.map.wall_list
         self.damage_list = self.map.damage_list
         self.tweet_list = self.map.tweet_list
+
+        for thing in self.map.tan_list:
+            self.tan_list.append(item.AnimatedItem("images/items/Tan/tan", 14, thing.center_x, thing.center_y))
 
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player,
                                                              self.wall_list,
@@ -122,6 +127,7 @@ class GameView(arcade.View):
         self.tweet_list.draw()
         self.damage_list.draw()
         self.player_list.draw()
+        self.tan_list.draw()
 
         # Draw our score on the screen, scrolling it with the viewport
         score_text = f"Score: {self.score}"
@@ -155,9 +161,14 @@ class GameView(arcade.View):
 
     def on_update(self, delta_time):
         """ Movement and game logic """
-
+        self.frame_number += 1
         self.player.setSpeed()
+
         self.player.update_animation()
+        # Slow down animation by 3x
+        if self.frame_number % 3 == 0:
+            for tan in self.tan_list:
+                tan.update_animation(delta_time*3)
         # Move the player with the physics engine
         self.physics_engine.update()
 
