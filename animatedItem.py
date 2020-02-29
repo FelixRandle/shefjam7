@@ -1,5 +1,4 @@
 import arcade
-import character
 
 
 class AnimatedItem(arcade.Sprite):

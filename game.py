@@ -47,9 +47,6 @@ class GameView(arcade.View):
         # Keep track of the score
         self.score = 0
 
-        #Keep track of health
-        self.health = 100
-
         # Load sounds
         self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
         self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
@@ -86,7 +83,7 @@ class GameView(arcade.View):
         #Keep track of health
         #TODO Do we want to have different health on different levels.
         #TODO switch health to be stored in character.
-        self.health = 30
+
 
         # Create the Sprite lists
         self.player_list = arcade.SpriteList()
@@ -95,17 +92,20 @@ class GameView(arcade.View):
         self.tweet_list = arcade.SpriteList()
         self.tan_list = arcade.SpriteList()
 
-        # Set up the player
+        # Set up the player fallback image.
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         self.player = TrumpCharacter.PlayerCharacter(image_source)
         self.player_list.append(self.player)
+        self.player.health = 30
 
         # --- Load in a map from the tiled editor ---
         self.map = self.maps[self.currentLevel]["map"]
 
         self.wall_list = self.map.wall_list
         self.damage_list = self.map.damage_list
-        self.tweet_list = self.map.tweet_list
+
+        for thing in self.map.tweet_list:
+            self.tweet_list.append(item.AnimatedItem("images/items/Tweet/tweet", 16, thing.center_x, thing.center_y))
 
         for thing in self.map.tan_list:
             self.tan_list.append(item.AnimatedItem("images/items/Tan/tan", 14, thing.center_x, thing.center_y))
@@ -135,7 +135,7 @@ class GameView(arcade.View):
                          arcade.csscolor.WHITE, 18)
 
         # Draw our health on the screen, scrolling it with the viewport
-        health_text = f"Health: {self.health}"
+        health_text = f"Health: {self.player.health}"
         arcade.draw_text(health_text, 10 + self.view_left, 30 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
 
@@ -168,7 +168,9 @@ class GameView(arcade.View):
         # Slow down animation by 3x
         if self.frame_number % 3 == 0:
             for tan in self.tan_list:
-                tan.update_animation(delta_time*3)
+                tan.update_animation()
+            for tweet in self.tweet_list:
+                tweet.update_animation()
         # Move the player with the physics engine
         self.physics_engine.update()
 
@@ -183,7 +185,7 @@ class GameView(arcade.View):
             # Play a sound
             arcade.play_sound(self.collect_coin_sound)
             # Add one to the score
-            self.health -= 10
+            self.player.health -= 10
 
         # See if we hit any damage
         tan_hit_list = arcade.check_for_collision_with_list(self.player,
@@ -212,10 +214,10 @@ class GameView(arcade.View):
             self.score += 1
 
         if self.player.center_y < 0:
-            self.health = 0
+            self.player.health = 0
 
         # Checking for low health.
-        if self.health <= 0:
+        if self.player.health <= 0:
             game_over_view = menu.GameOverView()
             self.window.set_mouse_visible(True)
             self.window.show_view(game_over_view)
