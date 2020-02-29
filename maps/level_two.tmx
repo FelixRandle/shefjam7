@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="50" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="1">
+ <editorsettings>
+  <export target="." format="tmx"/>
+ </editorsettings>
+ <tileset firstgid="1" name="city_tiles" tilewidth="128" tileheight="128" tilecount="5" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="5">
+   <image width="128" height="128" source="../images/tiles/concrete-window.png"/>
+   <objectgroup draworder="index" id="3">
+    <object id="2" x="0" y="0" width="127.5" height="127.5"/>
+   </objectgroup>
+  </tile>
+  <tile id="6">
+   <image width="128" height="128" source="../images/tiles/concrete-middle.png"/>
+  </tile>
+  <tile id="7">
+   <image width="128" height="128" source="../images/tiles/concrete-slant-left.png"/>
+  </tile>
+  <tile id="8">
+   <image width="128" height="128" source="../images/tiles/concrete-slant-right.png"/>
+  </tile>
+  <tile id="9">
+   <image width="128" height="128" source="../images/tiles/concrete-top.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="11" name="items" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../images/items/tweet.png"/>
+  </tile>
+ </tileset>
+ <layer id="2" name="Tweets" width="50" height="35">
+  <data encoding="base64" compression="zlib">
+   eAHt0IEAAAAAw6D5Ux/hAoVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMDAGxgbWAAB
+  </data>
+ </layer>
+ <layer id="3" name="Damage" width="50" height="35">
+  <data encoding="base64" compression="zlib">
+   eAHt0IEAAAAAw6D5Ux/hAoVQYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMDAGxgbWAAB
+  </data>
+ </layer>
+ <layer id="1" name="Platforms" width="50" height="35">
+  <data encoding="base64" compression="zlib">
+   eAHtkksKgDAMBd15/xtLFgOPYFWEioUplHz6kuDEbfNIQAISkIAEJCABCUhAAhKQgAQkIAEJJIE9g4V9v+Nfy3Mf7mMGAf+rGVTf9/x6HzVvxsy7nnfvnWDq0y9dxdxex/tZ/kmuz8qaq5mpw+/6UdxnosPSb2R7femoTTuqTz0+9qyeHP2Iy+bJPG/kSkcOP2P6oF/dHtd0AwM=
+  </data>
+ </layer>
+</map>
