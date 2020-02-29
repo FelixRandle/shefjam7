@@ -4,6 +4,7 @@ import arcade
 CHARACTER_SCALING = 1
 PLAYER_MOVEMENT_SPEED = 5
 
+
 class Character(arcade.Sprite):
     def __init__(self, image_path):
         super().__init__(image_path, CHARACTER_SCALING)

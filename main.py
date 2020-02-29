@@ -4,7 +4,6 @@ Platformer Game
 import arcade
 
 import menu
-import game
 import constants
 
 def main():

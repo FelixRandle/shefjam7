@@ -81,6 +81,8 @@ class GameView(arcade.View):
         self.score = 0
 
         #Keep track of health
+        #TODO Do we want to have different health on different levels.
+        #TODO switch health to be stored in character.
         self.health = 30
 
         # Create the Sprite lists
@@ -181,16 +183,10 @@ class GameView(arcade.View):
             # Add one to the score
             self.score += 1
 
-        # --- Manage Scrolling ---
-
-        # Track if we need to change the viewport
-
-        changed = False
-
         if self.player.center_y < 0:
             self.health = 0
 
-        #checking for health low
+        # Checking for low health.
         if self.health == 0:
             game_over_view = menu.GameOverView()
             self.window.set_mouse_visible(True)
@@ -204,6 +200,11 @@ class GameView(arcade.View):
                 self.currentLevel += 1
                 self.setup()
 
+        # --- Manage Scrolling ---
+
+        # Track if we need to change the viewport
+
+        changed = False
 
         # Scroll left
         left_boundary = self.view_left + LEFT_VIEWPORT_MARGIN

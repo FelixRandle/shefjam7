@@ -35,6 +35,7 @@ class InstructionView(arcade.View):
         game_view.setup()
         self.window.show_view(game_view)
 
+
 class GameOverView(arcade.View):
     def on_show(self):
         arcade.set_background_color(arcade.color.ORANGE_PEEL)
