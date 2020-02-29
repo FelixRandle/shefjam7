@@ -201,7 +201,6 @@ class InstructionView(arcade.View):
 
         self.window.show_view(game_view)
 
-
 class GameOverView(arcade.View):
     def on_show(self):
         arcade.set_background_color(arcade.color.ORANGE_PEEL)
@@ -214,6 +213,11 @@ class GameOverView(arcade.View):
                          arcade.color.BLACK, font_size=50, anchor_x="center")
         arcade.draw_text("Click to try again", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2 - 75,
                          arcade.color.GRAY, font_size=20, anchor_x="center")
+
+    def on_key_press(self, key, modifiers):
+        game_view = game.GameView()
+        game_view.setup()
+        self.window.show_view(game_view)
 
     def on_mouse_press(self, _x, _y, _button, _modifiers):
         game_view = game.GameView()
