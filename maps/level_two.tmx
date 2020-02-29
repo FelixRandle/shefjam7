@@ -36,6 +36,12 @@
    <image width="320" height="320" source="../../../../AppData/Local/Temp/polar_bear0_laxZKK"/>
   </tile>
  </tileset>
+ <tileset firstgid="25" name="Enemies" tilewidth="320" tileheight="320" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="320" height="320" source="../../../../AppData/Local/Temp/polar_bear0_FpMeXv"/>
+  </tile>
+ </tileset>
  <layer id="2" name="Tweets" width="100" height="35">
   <data encoding="base64" compression="zlib">
    eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
@@ -43,12 +49,12 @@
  </layer>
  <layer id="3" name="Damage" width="100" height="35">
   <data encoding="base64" compression="zlib">
-   eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
+   eAHt0rENACAIBEDWcP9FrehJ+MZ4NlAAgYtVHgECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAQAucTkQCA4HUf9nM2fQOToyVvLJn7OBPB128+wB+
   </data>
  </layer>
  <layer id="1" name="Platforms" width="100" height="35">
   <data encoding="base64" compression="zlib">
-   eAHtk+0KgzAMRf2393/jEeHCNbS1TugiHkHaJDcfO5nbxgMBCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIPIXA5ymDvmRO9lFr0eyDfdQiUGsavg/2UYtArWn4PthHLQLHaf79/1zZP3rpPVJYa638zVd/2dlsZ/HcT/o49UojWxr5dfb8it851Ttq9Ppkf7bv9J/NHfWM2Ciee7hed89v+aKG+12f68seaVoxr69+qjV7turO5l7R+ay6R77umsNt92Wtx5TT07T8OV+aOOPxmrL3QCOmuHK8tnJc477ePdfq6X71fwG1UAKv
+   eAHtkVsKwzAMBHOHPu5/1LKkQ4VwgpOW9GcMYa3V2m5Hy+KSgAQkIAEJSEACEpCABCQgAQlIQAISkIAEJCABCUhAAhKQgAQkIAEJSEACEpCABCQgAQlIQAISkIAEriJwu+oh35ki4DymMF0Wch6XoZ566N/zeEz9ynHo+bbRcWp1ZzJ75+97zR/2vp3H2fPMAT3yl2DbNXfg9fu6n7p+Pd/597rnZ+qZO87yzPs5W8/3mt9YM+HPl/6RecB0S3MfvexZcKeO4qH0woyve7Ue7fG6Mge092sNw5Emh88exY+yqtf3ZJgFc0DTr72+Tx/WW1ozdd+Z08OPMoOqyWXhrdWnHvk1088mz+p8qF8PUAmm
   </data>
  </layer>
 </map>
