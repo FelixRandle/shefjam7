@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="1">
  <editorsettings>
-  <export format="tmx"/>
+  <export target="." format="tmx"/>
  </editorsettings>
  <tileset firstgid="1" name="city_tiles" tilewidth="128" tileheight="128" tilecount="5" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
@@ -75,7 +75,7 @@
  <tileset firstgid="25" name="Enemies" tilewidth="320" tileheight="320" tilecount="1" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
-   <image width="320" height="320" source="../../../../AppData/Local/Temp/polar_bear0_SPaciQ"/>
+   <image width="256" height="256" source="../images/enemies/polarbear.png"/>
   </tile>
  </tileset>
  <layer id="2" name="Tweets" width="100" height="35">
@@ -85,7 +85,12 @@
  </layer>
  <layer id="3" name="Damage" width="100" height="35">
   <data encoding="base64" compression="zlib">
-   eAHt0zEKACAIBVCv0f0v2u6kQYPy2gS1/oMiHAIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgsEvg7IojDYERAhP/XX5zrqvwr3PV/bnv532d3Z3enEG9V+AC+KoAyQ==
+   eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
+  </data>
+ </layer>
+ <layer id="4" name="Enemies" width="100" height="35">
+  <data encoding="base64" compression="zlib">
+   eAHt0aERADAIA0DWYP9F6xGYiiAexyGSe6oMAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIDAJtDb8dgt3TWd//OOZPdk9jS71GV2s98XeF36AJc=
   </data>
  </layer>
  <layer id="1" name="Platforms" width="100" height="35">

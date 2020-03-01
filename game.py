@@ -38,6 +38,8 @@ class GameView(arcade.View):
 
         # Our physics engine
         self.physics_engine = None
+        self.enemy_physics_engine = None
+
         self.map = None
 
         # Used to keep track of our scrolling
@@ -46,10 +48,6 @@ class GameView(arcade.View):
 
         # Keep track of the score
         self.score = 0
-
-        # Load sounds
-        self.collect_coin_sound = arcade.load_sound(":resources:sounds/coin1.wav")
-        self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
 
         self.maps = [
             {
@@ -73,6 +71,13 @@ class GameView(arcade.View):
         self.currentLevel = 0
         self.frame_number = 0
 
+        self.sounds = {
+            "fall": arcade.load_sound("sounds/fall3.wav"),
+            "collect": arcade.load_sound(":resources:sounds/coin1.wav"),
+            "jump": arcade.load_sound(":resources:sounds/jump1.wav"),
+            "fakenews": arcade.load_sound("sounds/fakenews.mp3")
+        }
+
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
 
     def setup(self):
@@ -95,6 +100,7 @@ class GameView(arcade.View):
         self.damage_list = arcade.SpriteList()
         self.tweet_list = arcade.SpriteList()
         self.tan_list = arcade.SpriteList()
+        self.enemy_list = arcade.SpriteList()
 
         # Set up the player fallback image.
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
@@ -116,9 +122,16 @@ class GameView(arcade.View):
         for thing in self.map.tan_list:
             self.tan_list.append(item.AnimatedItem("images/items/Tan/tan", 14, thing.center_x, thing.center_y))
 
+        self.enemy_list = self.map.enemy_list
+
         self.physics_engine = arcade.PhysicsEnginePlatformer(self.player,
                                                              self.wall_list,
                                                              GRAVITY)
+
+        for enemy in self.enemy_list:
+            enemy.physics = arcade.PhysicsEnginePlatformer(enemy,
+                                                           self.wall_list,
+                                                           GRAVITY)
 
         self.base_viewport = arcade.get_viewport()
 
@@ -164,7 +177,7 @@ class GameView(arcade.View):
         if key == arcade.key.UP or key == arcade.key.W or key == arcade.key.SPACE:
             if self.physics_engine.can_jump():
                 self.player.change_y = PLAYER_JUMP_SPEED
-                arcade.play_sound(self.jump_sound)
+                arcade.play_sound(self.sounds["jump"])
         if key == arcade.key.LEFT or key == arcade.key.A:
             self.player.movingLeft = True
         if key == arcade.key.RIGHT or key == arcade.key.D:
@@ -210,6 +223,8 @@ class GameView(arcade.View):
                 tweet.update_animation()
         # Move the player with the physics engine
         self.physics_engine.update()
+        for enemy in self.enemy_list:
+            enemy.physics.update()
 
         # See if we hit any damage
         damage_hit_list = arcade.check_for_collision_with_list(self.player,
@@ -220,7 +235,7 @@ class GameView(arcade.View):
             # Remove the coin
             item.remove_from_sprite_lists()
             # Play a sound
-            arcade.play_sound(self.collect_coin_sound)
+            arcade.play_sound(self.sounds["collect"])
             # Add one to the score
             self.player.health -= 1
 
@@ -233,7 +248,7 @@ class GameView(arcade.View):
             # Remove the coin
             tan.remove_from_sprite_lists()
             # Play a sound
-            arcade.play_sound(self.collect_coin_sound)
+            arcade.play_sound(self.sounds["collect"])
             # Add one to the score
             self.player.health += 10
 
@@ -246,12 +261,26 @@ class GameView(arcade.View):
             # Remove the coin
             tweet.remove_from_sprite_lists()
             # Play a sound
-            arcade.play_sound(self.collect_coin_sound)
+            arcade.play_sound(self.sounds["collect"])
             # Add one to the score
             self.score += 1
 
+        # See if we hit any damage
+        enemy_hit_list = arcade.check_for_collision_with_list(self.player,
+                                                              self.enemy_list)
+
+        # Loop through each coin we hit (if any) and remove it
+        for enemy in enemy_hit_list:
+            # Remove the coin
+            enemy.remove_from_sprite_lists()
+            # Play a sound
+            arcade.play_sound(self.sounds["collect"])
+            # Add one to the score
+            self.player.health = 0
+
         if self.player.center_y < 0:
             self.player.health = 0
+            arcade.play_sound(self.sounds["fall"])
 
         # Checking for low health.
         if self.player.health <= 0:

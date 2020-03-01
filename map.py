@@ -20,6 +20,7 @@ class Map:
         # -- Tan
         self.tan_list = arcade.tilemap.process_layer(my_map, 'Tan', TILE_SCALING)
 
+        self.enemy_list = arcade.tilemap.process_layer(my_map, 'Enemies', TILE_SCALING)
         # --- Other stuff
         # Set the background color
         if my_map.background_color:
