@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="60" height="25" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="60" height="25" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="1">
  <editorsettings>
   <export target="level_one.tmx" format="tmx"/>
  </editorsettings>
@@ -34,75 +34,13 @@
    <image width="128" height="128" source="../images/tiles/concrete-top.png"/>
   </tile>
  </tileset>
- <tileset firstgid="11" name="items" tilewidth="128" tileheight="128" tilecount="17" columns="0">
+ <tileset firstgid="11" name="items" tilewidth="128" tileheight="128" tilecount="2" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
-  <tile id="1">
-   <image source="../images/items/Tan/tan_00.png"/>
-  </tile>
-  <tile id="2">
-   <image source="../images/items/Tan/tan_01.png"/>
-  </tile>
-  <tile id="3">
-   <image source="../images/items/Tan/tan_02.png"/>
-  </tile>
-  <tile id="4">
-   <image source="../images/items/Tan/tan_03.png"/>
-  </tile>
-  <tile id="5">
-   <image source="../images/items/Tan/tan_04.png"/>
-  </tile>
-  <tile id="6">
-   <image source="../images/items/Tan/tan_05.png"/>
-  </tile>
-  <tile id="7">
-   <image source="../images/items/Tan/tan_06.png"/>
-  </tile>
-  <tile id="8">
-   <image source="../images/items/Tan/tan_07.png"/>
-  </tile>
-  <tile id="9">
-   <image source="../images/items/Tan/tan_08.png"/>
-  </tile>
-  <tile id="10">
-   <image source="../images/items/Tan/tan_09.png"/>
-  </tile>
-  <tile id="11">
-   <image width="32" height="32" source="../images/items/Tan/tan_10.png"/>
-  </tile>
-  <tile id="12">
-   <image width="32" height="32" source="../images/items/Tan/tan_11.png"/>
-  </tile>
-  <tile id="13">
-   <image width="32" height="32" source="../images/items/Tan/tan_12.png"/>
-  </tile>
-  <tile id="14">
-   <image width="32" height="32" source="../images/items/Tan/tan_13.png"/>
-  </tile>
-  <tile id="15">
-   <image width="32" height="32" source="../images/items/Tan/tan_14.png"/>
-  </tile>
-  <tile id="16">
-   <image source="../images/items/Tan/tan_00.png"/>
-   <animation>
-    <frame tileid="1" duration="50"/>
-    <frame tileid="2" duration="50"/>
-    <frame tileid="3" duration="50"/>
-    <frame tileid="4" duration="50"/>
-    <frame tileid="5" duration="50"/>
-    <frame tileid="6" duration="50"/>
-    <frame tileid="7" duration="50"/>
-    <frame tileid="8" duration="50"/>
-    <frame tileid="9" duration="50"/>
-    <frame tileid="10" duration="50"/>
-    <frame tileid="11" duration="50"/>
-    <frame tileid="12" duration="50"/>
-    <frame tileid="13" duration="50"/>
-    <frame tileid="14" duration="50"/>
-    <frame tileid="15" duration="50"/>
-   </animation>
-  </tile>
   <tile id="17">
    <image width="128" height="128" source="../images/items/tweet.png"/>
+  </tile>
+  <tile id="18">
+   <image width="32" height="32" source="../images/items/Tan/tan_0.png"/>
   </tile>
  </tileset>
  <layer id="2" name="Tweets" width="60" height="25">
@@ -118,6 +56,11 @@
  <layer id="1" name="Platforms" width="60" height="25">
   <data encoding="base64" compression="zlib">
    eAHdlu1uU1EMBPuLAu//wDBNRp0an5uAipCwdLP27trn4yZVX19eXl6X5yf1XwZnnbFx0/M363n/n7nWvz6bZ7k6YzX9f4rM+n5vBnl6B12r+b3l06BrnoY+4zn1ynsGa9C5auCXO18OLyF3q95reVF9QzyP4uQ58ds89+K7xdN+9YnbLLnptVbfEA/RfdyY9089MM3fHY+zrQ/ua1qp5xP5lxQv34c+cFcxdc8t0js9V/NOmjOcC8LJ00fu91mEP4X9E09+eLysvQUa4bxb9fFT7YS6nWUN2iNnXVTbsL7mm1cOH9F79/xqzro5b/s0v0L78ZA799TjOsWTFx5fv8t+J/obmf30nEJNnD74k4a3mt7ea/U5e/afdOdO3Pwnzj25H3Hzo53eW/vIT88293e4be6z/dveu+85Z2rtr7btqdyc+6i2V5+1CG8OGuS+z+5V/RF21vReadPbmj6f8jPH0z3bAxKzlnsTx4d3oMcZw/Y2E67r6jn1qE/s/ppPn7WebW086qDRXI5+vXCbR++muX61q7+ZneXfWHrNq8P30eOaesH65OEMenpWNdD9zhl6nFGs1rye5p098/rM6ynXXE+57W7Q8RLtMa+Gx7sq6nEGeBXTP9e66kXzXenb+uW2M8/1maNfTXSNYrXm9TQ/eU58ez1rveQ+eq1B3021mePzN4Nmn74imtFcbuIzHnvw8rhn6844cc4oel9yzpkz5PHPUINvPn3WJw+8j15QbiLat6HDEXgb877U9HW2mjjPbA96c/3PoPe+rQvnd23qrcmN5nIb6uuczdcz24Ov+danx/t2Dn2eSbS/e2nurMnJu4ZzNqSXAOe6b0I+uldp+6037P70T06e/ql1X1NzvfJX53ad+p1xQnvQ2/con/u2Frf/BTpzW8891mfuuYtohJ7W9TXXQ98PNPMQGA==
+  </data>
+ </layer>
+ <layer id="5" name="Tan" width="60" height="25">
+  <data encoding="base64" compression="zlib">
+   eAHt0DERAAAMAjGM1L/NimBgCQaeS2IECBAgQIAAAQIECBAgQIAAAQIECBAgsBa49QH9WuABSqQAHg==
   </data>
  </layer>
 </map>

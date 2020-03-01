@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="4" nextobjectid="1">
  <editorsettings>
-  <export target="." format="tmx"/>
+  <export format="tmx"/>
  </editorsettings>
  <tileset firstgid="1" name="city_tiles" tilewidth="128" tileheight="128" tilecount="5" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
@@ -80,7 +80,7 @@
  </tileset>
  <layer id="2" name="Tweets" width="100" height="35">
   <data encoding="base64" compression="zlib">
-   eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
+   eAHt0SEOADAIBDD8/v/fbeIkliB6CSEBVKkSAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQ6gfMWqe7GfE4gv/hd9glc1HgAQw==
   </data>
  </layer>
  <layer id="3" name="Damage" width="100" height="35">
@@ -90,16 +90,7 @@
  </layer>
  <layer id="1" name="Platforms" width="100" height="35">
   <data encoding="base64" compression="zlib">
-<<<<<<< HEAD
    eAHtlAkKwzAMBPOHHv9/aqPCwCIEJcWF0IzB1VqyZXlEum0OCUhAAhKQgAQkIAEJSEACEpCABCQgAQlIQAISkIAEJCABCUhAAhKQgAQkIAEJSEACEpCABCQgAQlIQAISuCKBx8kefT9ZPb2cZ3csXv9jP6qnOVcgow/YFTl7jurF1fvx6f3w77az/HadPUhNvslH7Nf2tl9w5P+KbyDrwpc246XzjaUZk+59qHWfnJ8se6dY+XotWUOPZ46+L2Ocw8cd2OKck33d0o9kOek6l37ypC81dfAG1nUOH5oY/iP9YG/lQmc/0Gm5L+9PTZx6Mla6Ro9NvsyTvUC/E+0/rLEvJTQLRA==
-=======
-   eAHt0kEKwzAMBMD8INf+/6WJDgFhLAUKsS8jCLUd1SqzPQ5FgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAYL3AeY+cPet/iYkhMMsiztQeAXnsce+mzjLp+r37XmDM5PuJJnQC8uh01ryLDJ6SxyOx9jNnkCfLI2vsX8tjXQbZupqae2Kt/hf43V+tnrg1W1dTco88KqX388hhtMz7uGHcz27NPbFWvUD1/x8dx33cms+qKbkn1qoXuABrUwZ5
-  </data>
- </layer>
- <layer id="4" name="Background" width="100" height="35">
-  <data encoding="base64" compression="zlib">
-   eAHt0KENAAAMAjAO2P/3zmKnVxQhwTQRAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgMBdYOrSvWaVAAECBJ4JLMjAABk=
->>>>>>> 6996a6c8a3c362d0363e073d10c23cb5fac5ea2f
   </data>
  </layer>
 </map>

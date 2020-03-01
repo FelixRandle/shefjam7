@@ -53,7 +53,7 @@ class GameView(arcade.View):
 
         self.maps = [
             {
-                "map": map.Map("./maps/bush_level.tmx"),
+                "map": map.Map("./maps/level_three.tmx"),
                 "scoreTarget": 10
             },
             {
@@ -61,7 +61,7 @@ class GameView(arcade.View):
                 "scoreTarget": 6
             },
             {
-                "map": map.Map("./maps/level_three.tmx"),
+                "map": map.Map("./maps/bush_level.tmx"),
                 "scoreTarget": 3
             }
         ]
@@ -211,7 +211,7 @@ class GameView(arcade.View):
             # Play a sound
             arcade.play_sound(self.collect_coin_sound)
             # Add one to the score
-            self.player.health -= 10
+            self.player.health -= 1
 
         # See if we hit any damage
         tan_hit_list = arcade.check_for_collision_with_list(self.player,
