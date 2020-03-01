@@ -54,15 +54,19 @@ class GameView(arcade.View):
         self.maps = [
             {
                 "map": map.Map("./maps/level_three.tmx"),
-                "scoreTarget": 10
+                #TODO REVERT TO 15
+                "scoreTarget": 1,
+                "background": arcade.load_texture("images/background/city.png")
             },
             {
                 "map": map.Map("./maps/level_two.tmx"),
-                "scoreTarget": 6
+                "scoreTarget": 6,
+                "background": arcade.load_texture("images/background/ice.png")
             },
             {
                 "map": map.Map("./maps/bush_level.tmx"),
-                "scoreTarget": 3
+                "scoreTarget": 3,
+                "background": arcade.load_texture("images/background/bush.png")
             }
         ]
 
@@ -100,12 +104,14 @@ class GameView(arcade.View):
 
         # --- Load in a map from the tiled editor ---
         self.map = self.maps[self.currentLevel]["map"]
+        self.background = self.maps[self.currentLevel]["background"]
 
         self.wall_list = self.map.wall_list
         self.damage_list = self.map.damage_list
 
         for thing in self.map.tweet_list:
-            self.tweet_list.append(item.AnimatedItem("images/items/Tweet/tweet", 16, thing.center_x, thing.center_y))
+            self.tweet_list.append(item.AnimatedItem("images/items/Tweet/tweet", 16, thing.center_x, thing.center_y,
+                                                     scale=0.5))
 
         for thing in self.map.tan_list:
             self.tan_list.append(item.AnimatedItem("images/items/Tan/tan", 14, thing.center_x, thing.center_y))
@@ -122,6 +128,12 @@ class GameView(arcade.View):
         # Clear the screen to the background color
         arcade.start_render()
 
+        scale = constants.SCREEN_WIDTH / self.background.width
+        arcade.draw_lrwh_rectangle_textured(self.view_left, self.view_bottom,
+                                            constants.SCREEN_WIDTH,
+                                            constants.SCREEN_HEIGHT,
+                                            self.background)
+
         # Draw our sprites
         self.wall_list.draw()
         self.tweet_list.draw()
@@ -133,6 +145,8 @@ class GameView(arcade.View):
                 projectile.draw()
         except AttributeError:
             pass
+
+
 
         # Draw our score on the screen, scrolling it with the viewport
         score_text = f"Score: {self.score}"
@@ -166,11 +180,8 @@ class GameView(arcade.View):
 
     def on_mouse_motion(self, x, y, dx, dy):
         """ Called to update our objects. Happens approximately 60 times per second."""
-        print(x,y)
-        print(dx,dy)
-        self.player.aimPosition = [x - self.player.center_x + self.view_left,
-                                   y - self.player.center_y + self.view_bottom]
-        print(self.player.aimPosition)
+        self.player.aimPosition = [x + self.view_left,
+                                   y + self.view_bottom]
 
     def on_mouse_press(self, x, y, button, modifiers):
         """
@@ -218,7 +229,7 @@ class GameView(arcade.View):
                                                             self.tan_list)
 
         # Loop through each coin we hit (if any) and remove it
-        for item in tan_hit_list:
+        for tan in tan_hit_list:
             # Remove the coin
             tan.remove_from_sprite_lists()
             # Play a sound
@@ -231,9 +242,9 @@ class GameView(arcade.View):
                                                               self.tweet_list)
 
         # Loop through each coin we hit (if any) and remove it
-        for item in tweet_hit_list:
+        for tweet in tweet_hit_list:
             # Remove the coin
-            item.remove_from_sprite_lists()
+            tweet.remove_from_sprite_lists()
             # Play a sound
             arcade.play_sound(self.collect_coin_sound)
             # Add one to the score
@@ -291,6 +302,11 @@ class GameView(arcade.View):
             # don't line up on the screen
             self.view_bottom = int(self.view_bottom)
             self.view_left = int(self.view_left)
+
+            if self.view_bottom < 0:
+                self.view_bottom = 0
+            if self.view_left < 0:
+                self.view_left = 0
 
             # Do the scrolling
             arcade.set_viewport(self.view_left,

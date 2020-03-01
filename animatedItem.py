@@ -4,7 +4,7 @@ import arcade
 class AnimatedItem(arcade.Sprite):
     def __init__(self, mainPath, frameCount, x, y, scale=1):
         # Set up parent class
-        super().__init__(f"{mainPath}_0.png", 1, center_x=(x // 64) * 64 + 32, center_y=(y // 64) * 64 + 32)
+        super().__init__(f"{mainPath}_0.png", scale, center_x=(x // 64) * 64 + 32, center_y=(y // 64) * 64 + 32)
 
         # Used for flipping between image sequences
         self.cur_texture = 0
