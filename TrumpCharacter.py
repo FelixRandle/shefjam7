@@ -39,7 +39,7 @@ class PlayerCharacter(character.Character):
         self.jumping = False
         self.climbing = False
         self.is_on_ladder = False
-        self.projectiles = []
+        self.projectiles = arcade.SpriteList()
         self.scale = character.CHARACTER_SCALING
         self.aimPosition = [0, 0]
 

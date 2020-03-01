@@ -53,7 +53,7 @@ class GameView(arcade.View):
             {
                 "map": map.Map("./maps/level_three.tmx"),
                 #TODO REVERT TO 15
-                "scoreTarget": 1,
+                "scoreTarget": 15,
                 "background": arcade.load_texture("images/background/city.png")
             },
             {
@@ -75,6 +75,7 @@ class GameView(arcade.View):
             "fall": arcade.load_sound("sounds/fall3.wav"),
             "collect": arcade.load_sound(":resources:sounds/coin1.wav"),
             "jump": arcade.load_sound(":resources:sounds/jump1.wav"),
+            "hit": arcade.load_sound("sounds/hit2.wav"),
             "fakenews": arcade.load_sound("sounds/fakenews.mp3")
         }
 
@@ -86,8 +87,7 @@ class GameView(arcade.View):
         self.view_bottom = 0
         self.view_left = 0
 
-        # Keep track of the score
-        self.score = 0
+
 
         #Keep track of health
         #TODO Do we want to have different health on different levels.
@@ -106,7 +106,11 @@ class GameView(arcade.View):
         image_source = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         self.player = TrumpCharacter.PlayerCharacter(image_source)
         self.player_list.append(self.player)
-        self.player.health = 30
+
+        if self.currentLevel == 0:
+            # Reset Score
+            self.score = 0
+            self.player.health = 30
 
         # --- Load in a map from the tiled editor ---
         self.map = self.maps[self.currentLevel]["map"]
@@ -133,6 +137,8 @@ class GameView(arcade.View):
                                                            self.wall_list,
                                                            GRAVITY)
 
+
+
         self.base_viewport = arcade.get_viewport()
 
     def on_draw(self):
@@ -153,6 +159,7 @@ class GameView(arcade.View):
         self.damage_list.draw()
         self.player_list.draw()
         self.tan_list.draw()
+        self.enemy_list.draw()
         try:
             for projectile in self.player.projectiles:
                 projectile.draw()
@@ -231,11 +238,11 @@ class GameView(arcade.View):
                                                                self.damage_list)
 
         # Loop through each coin we hit (if any) and remove it
-        for item in damage_hit_list:
+        for damage in damage_hit_list:
             # Remove the coin
-            item.remove_from_sprite_lists()
+            damage.remove_from_sprite_lists()
             # Play a sound
-            arcade.play_sound(self.sounds["collect"])
+            arcade.play_sound(self.sounds["hit"])
             # Add one to the score
             self.player.health -= 1
 
@@ -277,6 +284,21 @@ class GameView(arcade.View):
             arcade.play_sound(self.sounds["collect"])
             # Add one to the score
             self.player.health = 0
+
+        for projectile in self.player.projectiles:
+            projectile_wall_hits = arcade.check_for_collision_with_list(projectile,
+                                                                        self.wall_list)
+
+            for wall_hit in projectile_wall_hits:
+                projectile.remove_from_sprite_lists()
+
+            projectile_enemy_hits = arcade.check_for_collision_with_list(projectile,
+                                                                         self.enemy_list)
+
+            for enemy_hit in enemy_hit_list:
+                enemy_hit.remove_from_sprite_lists()
+                projectile.remove_from_sprite_lists()
+                arcade.play_sound(self.sounds["fakenews"])
 
         if self.player.center_y < 0:
             self.player.health = 0
