@@ -53,6 +53,8 @@ class GameOverView(arcade.View):
         arcade.set_background_color(arcade.color.ORANGE_PEEL)
 
     def on_draw(self):
+        arcade.set_viewport(0, constants.SCREEN_WIDTH,
+                            0, constants.SCREEN_HEIGHT)
         arcade.start_render()
         arcade.draw_text("GAME OVER", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
                          arcade.color.BLACK, font_size=50, anchor_x="center")
