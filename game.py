@@ -51,19 +51,18 @@ class GameView(arcade.View):
 
         self.maps = [
             {
+                "map": map.Map("./maps/level_two.tmx"),
+                "scoreTarget": 7,
+                "background": arcade.load_texture("images/background/ice.png")
+            },
+                {
                 "map": map.Map("./maps/level_three.tmx"),
-                #TODO REVERT TO 15
                 "scoreTarget": 15,
                 "background": arcade.load_texture("images/background/city.png")
             },
             {
-                "map": map.Map("./maps/level_two.tmx"),
-                "scoreTarget": 6,
-                "background": arcade.load_texture("images/background/ice.png")
-            },
-            {
                 "map": map.Map("./maps/bush_level.tmx"),
-                "scoreTarget": 3,
+                "scoreTarget": 7,
                 "background": arcade.load_texture("images/background/bush.png")
             }
         ]
@@ -76,7 +75,9 @@ class GameView(arcade.View):
             "collect": arcade.load_sound(":resources:sounds/coin1.wav"),
             "jump": arcade.load_sound(":resources:sounds/jump1.wav"),
             "hit": arcade.load_sound("sounds/hit2.wav"),
-            "fakenews": arcade.load_sound("sounds/fakenews.mp3")
+            "fakenews": arcade.load_sound("sounds/fakenews.mp3"),
+            "wallhit": arcade.load_sound("sounds/hit3.wav"),
+            "laser": arcade.load_sound("sounds/laser2.wav")
         }
 
         arcade.set_background_color(arcade.csscolor.CORNFLOWER_BLUE)
@@ -208,7 +209,9 @@ class GameView(arcade.View):
         Called when the user presses a mouse button.
         """
         if button == arcade.MOUSE_BUTTON_LEFT:
+            arcade.play_sound(self.sounds["laser"])
             self.player.shootProjectile()
+
 
 
     def on_update(self, delta_time):
@@ -286,16 +289,19 @@ class GameView(arcade.View):
             self.player.health = 0
 
         for projectile in self.player.projectiles:
+            if projectile.center_y < 0 or projectile.center_y > constants.SCREEN_HEIGHT:
+                projectile.remove_from_sprite_lists()
             projectile_wall_hits = arcade.check_for_collision_with_list(projectile,
                                                                         self.wall_list)
 
             for wall_hit in projectile_wall_hits:
                 projectile.remove_from_sprite_lists()
+                arcade.play_sound(self.sounds["wallhit"])
 
             projectile_enemy_hits = arcade.check_for_collision_with_list(projectile,
                                                                          self.enemy_list)
 
-            for enemy_hit in enemy_hit_list:
+            for enemy_hit in projectile_enemy_hits:
                 enemy_hit.remove_from_sprite_lists()
                 projectile.remove_from_sprite_lists()
                 arcade.play_sound(self.sounds["fakenews"])
@@ -313,7 +319,8 @@ class GameView(arcade.View):
         # Checking for winning score, assuming constant for now.
         if self.score == self.maps[self.currentLevel]["scoreTarget"]:
             if self.currentLevel == len(self.maps) - 1:
-                print("WINNER WINNER CHICKEN DINNER")
+                win_view = menu.GameWinView()
+                self.window.show_view(win_view)
             else:
                 self.currentLevel += 1
                 self.setup()

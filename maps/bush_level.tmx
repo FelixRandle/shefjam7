@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="6" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="100" height="35" tilewidth="128" tileheight="128" infinite="0" nextlayerid="8" nextobjectid="1">
  <editorsettings>
   <export target="." format="tmx"/>
  </editorsettings>
@@ -75,14 +75,15 @@
    <image width="128" height="128" source="../images/tiles/dirt3.png.png"/>
   </tile>
  </tileset>
+ <tileset firstgid="26" name="enemies" tilewidth="128" tileheight="128" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="128" height="128" source="../images/enemies/koala.png"/>
+  </tile>
+ </tileset>
  <layer id="2" name="Tweets" width="100" height="35">
   <data encoding="base64" compression="zlib">
    eAHt1kEKACAIBEDv/f+/fUFYCI3prLBOBVY5BAgQIECAAAECBAgQIECAAAECBAgQIECAAIEZAmdGDCkItAR+fa/dubp1LUxFBAhEAsl/THqj0JoJECBAgACBtQL2h7VXJzgBAgQIECBAgAABAgSeCVx+kQBO
-  </data>
- </layer>
- <layer id="3" name="Damage" width="100" height="35">
-  <data encoding="base64" compression="zlib">
-   eAHt0DEBAAAAwqD1T20IX4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMG/oEBNrAAAQ==
   </data>
  </layer>
  <layer id="1" name="Platforms" width="100" height="35">
@@ -90,9 +91,14 @@
    eAHtl1tuGzEMRbOEPn7a/W80PnEPfEFQmpGdSVFUBMaXb1GXGSd5e9uyGdgMbAY2A5uBzcBmYDOwGdgMbAY2A99uFPh8v+k//tibmWsYgF94lmvwSNxPYleT8dS73O17MJC7kLdH9FjravR1eNxxZ8CA74kcrrBSa7Q7XOm7cx+/L+ByRWp+twt9K3137p2BM79LkqvKtXaHWbf1NQYqn7NqclNqrXbmbP01Bmac/q19rL7LrzHw71TXfTC5+0s8upF/8/28JaqPaoj7jHL+F3/lX87z/voSM87/QDwp/l8EjnZijrsAr5B6R8/4dVNmj3lX42g+zh1xnv6sT07RZ1LjWTurezWW89KLHRwJNWfyjvp0cbnsYulz7i5fn0jdMz/PuRP3kTNcoTPz7ysaL/aUO/BIMse6rNEnZmxFdx/gV+2D+Zj7K3ciT4nMMRNyO7FHjekHn+Uy9+HvjXrOVTZzv7KT0e+az5yXGVOS8/Sj15jcEjv73WXNs/vkLIUePPy9kI/xDl/ZSd4/dc5JW707f8VnH7HW6gernN2Hea/uw3rfMdDd1Nmqzfy8J7On1mDn/VM/inW9Zr7snXqt6WIr/MIXDyKfd2vtM3eg7i54Tz5Luu+25ECd89CdRf8MRzNak/fRV2v0g1WchT48nZCjmK+9gtT6P419/L7KM1Z6drnc03co48mDXDhTzmVejekX6W0f7+E+ROOjOdJfdc7v9uKejIOrQg/vJzoz9jM9z87g+yKPIvWe7UzuJTG5Np/Zk2v9IDHvRm0nOUMXrz76KvRGQM/9cCx8WCcyp3PrW2h3OtVdUCAHIj7OlnvvJxpzH6JxbfrYw7uI+DvJGbr4zMf5iHPcrfOf1jkjiI9ZM3a+4zyz+66iQg5EfDlT6jkXfvkG86EHoi97pH7PenwywzPiXNSmvtIr50KnDw93UMd/tbgHkfO62ZhLv3fWBp2ZPMX7uBfvZp1+8zu0B9gJfvop1dY/QvOdSez8ebdRv5nfdyK/n2q+exCJOxM4mqvj1lzPoJ48+8m/eaA+sIp5xNC17ed81hFfleylPjqL+EyS76pTJ8fgSDLHPM6FA+cDc8bkUF2u6jk1rl176wfpBZqDfSRncuzhrPYX9Yv6cyZ7VIT/ymXa5Fe79qg5uQ9mca7kBj0fZxa7M8y3p3ZFzwN9zME+I5yBmC/evY8dO2/2JxdbNKaPmvpzr51cdzrnpx+7k8xBR5w1kZm0nVNb/CgefGS9+SB3zyd9nkM8/V2+Pa3BrmJO9nIuz8gc9Yy9A/P6Oj8=
   </data>
  </layer>
- <layer id="4" name="Background" width="100" height="35">
+ <layer id="6" name="Enemies" width="100" height="35">
   <data encoding="base64" compression="zlib">
-   eAHtl0EOhSAMBb2A3/vf1s/ChIUxbaGlwLiRaEtf56HocXBAAAIQgAAEIAABCEAAAiMJ/EYW37R2YX4pepfElpg6rh4rShHaSADujQA7pONBB4jBU+BZMHDKhRBo+b7imQixKFURPPe3Q8pYGueveJ0KFqYlx5KnpXZqE/7xLe93QzlSIAABCEBgEwJR+0vE/trLspm0WnqO8tyizSPH8t3loWPUnKuv5zeuZY2PXOc7Mn/zQXJtpE8SfcRAAAIQgMA6BKT7szTOQsZzboue2XIefuX8jLP1UP971ONsOqV6vDl7zy/tc+Y4GOZ278ufr3u5u0KdlsANY6UCdQ==
+   eAHt17sNACAIBUDncP9BXYBCi2cgOUtiBM9fXEsjQIAAAQIECBAgQGCywJ5cvNoJECBAgAABAgQIECBA4Eog9fdLjXs1KZ0IFAL2ZIEiRIDAFwH3T8384vLSt84mSoAAAQIpAXd0Sta4BHoIOOM91kEVBAgQIDBDwLuZXyfGeeMpGQ5zigEf
+  </data>
+ </layer>
+ <layer id="7" name="Damage" width="100" height="35">
+  <data encoding="base64" compression="zlib">
+   eAHt10ESgyAMhWEvoN7/tm4zLpwXICHI3xWdBvP80sr0OHghgAACCCCAAAIIIIDATIFrZvNNe3vNb9HJ1tm1uJ2yAQK4D0DsvAQz6AScsJ2ZTUCnZbiA96y3gfhNWI091sw8fs6qsVoXn/g/HVpMW/ZkifU837My0gcBBBBAYD2BrPOl8hn7ntpKWd/ZlfdZM1eyZNScGU0K9/j797kiPeb6VHZ7HukyVCKAAAIIjBZQz2e1riVf5LVb8qy2x/rZdaX7sP897LpSRk+WaOfo63vuddVaDGtP7ms+X5/VvivSeQUeOGsCEA==
   </data>
  </layer>
  <layer id="5" name="Tan" width="100" height="35">

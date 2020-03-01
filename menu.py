@@ -123,6 +123,8 @@ class MenuView(arcade.View):
     def on_show(self):
         # self.background =  arcade.load_texture("images/")
         arcade.set_background_color(arcade.color.BLUE)
+        self.us_anthem = arcade.load_sound("sounds/background.wav")
+        self.background_music = arcade.play_sound(self.us_anthem)
 
     def on_draw(self):
         arcade.start_render()
@@ -149,13 +151,11 @@ class MenuView(arcade.View):
         game_view = game.GameView()
         game_view.setup()
         instructions_view = InstructionView()
-
         runSomething = False
         check_mouse_press_for_buttons(_x,_y,self.buttons)
 
         for i in self.buttons:
             if i.pressed:
-                print(i.__class__.__name__)
                 if i.__class__.__name__ == "StartTextButton":
                     print("Running game")
                     self.window.show_view(game_view)
@@ -223,3 +223,21 @@ class GameOverView(arcade.View):
         game_view = game.GameView()
         game_view.setup()
         self.window.show_view(game_view)
+
+class GameWinView(arcade.View):
+    def on_show(self):
+        arcade.set_background_color(arcade.color.ORANGE_PEEL)
+
+    def on_draw(self):
+        arcade.set_viewport(0, constants.SCREEN_WIDTH,
+                            0, constants.SCREEN_HEIGHT)
+        arcade.start_render()
+        arcade.draw_text("You WIN!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2,
+                         arcade.color.BLACK, font_size=50, anchor_x="center")
+        arcade.draw_text("You've saved the world from the fake news that is climate change.", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2 - 75,
+                         arcade.color.GRAY, font_size=20, anchor_x="center")
+
+    def on_mouse_press(self, _x, _y, _button, _modifiers):
+        quit()
+
+
