@@ -55,7 +55,7 @@ class GameView(arcade.View):
                 "scoreTarget": 7,
                 "background": arcade.load_texture("images/background/ice.png")
             },
-                {
+            {
                 "map": map.Map("./maps/level_three.tmx"),
                 "scoreTarget": 15,
                 "background": arcade.load_texture("images/background/city.png")
@@ -108,10 +108,8 @@ class GameView(arcade.View):
         self.player = TrumpCharacter.PlayerCharacter(image_source)
         self.player_list.append(self.player)
 
-        if self.currentLevel == 0:
-            # Reset Score
-            self.score = 0
-            self.player.health = 30
+        self.score = 0
+        self.player.health = 30
 
         # --- Load in a map from the tiled editor ---
         self.map = self.maps[self.currentLevel]["map"]
@@ -141,6 +139,8 @@ class GameView(arcade.View):
 
 
         self.base_viewport = arcade.get_viewport()
+
+        print
 
     def on_draw(self):
         """ Render the screen. """
@@ -247,7 +247,7 @@ class GameView(arcade.View):
             # Play a sound
             arcade.play_sound(self.sounds["hit"])
             # Add one to the score
-            self.player.health -= 1
+            self.player.health -= 10
 
         # See if we hit any damage
         tan_hit_list = arcade.check_for_collision_with_list(self.player,
@@ -312,6 +312,7 @@ class GameView(arcade.View):
 
         # Checking for low health.
         if self.player.health <= 0:
+            print("this")
             game_over_view = menu.GameOverView()
             self.window.set_mouse_visible(True)
             self.window.show_view(game_over_view)
